@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TP3_PARCIAL_BELGRANO_GRUPO4</string>
+    <string name="baseUrl">https://dog.ceo/api/breed/</string>
 </resources>
