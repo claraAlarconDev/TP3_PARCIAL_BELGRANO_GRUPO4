@@ -1,7 +1,9 @@
 package com.example.tp3_parcial_belgrano_grupo4.data.models
 
+import com.google.gson.annotations.SerializedName
+
 data class SavedModel(
-    val id_Guardados: Int,
-    val id_Favorito: Int,
-    val id_Duenio: Int
+    @SerializedName("idSaved") val idSaved:Int,
+    @SerializedName("idFavorite") val idFavorite: Int,
+    @SerializedName("idOwner") val idOwner:Int
 )

@@ -1,4 +1,4 @@
-package com.example.tp3_parcial_belgrano_grupo4.data.dao
+package com.example.tp3_parcial_belgrano_grupo4.data.database.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
@@ -15,4 +15,7 @@ interface BreedDao {
     // INSERTAR TODAS LAS RAZAS - EN CASO DE EXISTIR UN CONFLICTO LO REEMPLAZA
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(breeds: List<BreedEntity>)
+
+    @Query("DELETE FROM Breed_table")
+    suspend fun deleteAllBreed()
 }

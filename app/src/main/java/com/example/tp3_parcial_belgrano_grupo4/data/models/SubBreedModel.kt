@@ -1,6 +1,8 @@
 package com.example.tp3_parcial_belgrano_grupo4.data.models
 
+import com.google.gson.annotations.SerializedName
+
 data class SubBreedModel(
-    val id_SubRaza: Int,
-    val id_Raza: Int
+    @SerializedName("idSubBreed") val idSubBreed: Int,
+    @SerializedName("idBreed") val idBreed: Int
 )

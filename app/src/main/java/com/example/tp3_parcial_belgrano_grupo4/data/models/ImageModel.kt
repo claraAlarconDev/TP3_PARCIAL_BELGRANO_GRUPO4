@@ -1,7 +1,9 @@
 package com.example.tp3_parcial_belgrano_grupo4.data.models
 
+import com.google.gson.annotations.SerializedName
+
 data class ImageModel(
-    val id_Imagen: Int,
-    val id_Perro: Int,
-    val urlImagen: String
+    @SerializedName("idImage") val idImage:Int,
+    @SerializedName("idDog") val idDog:Int,
+    @SerializedName("urlImage") val urlImage: String
 )

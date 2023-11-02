@@ -1,4 +1,4 @@
-package com.example.tp3_parcial_belgrano_grupo4.data.dao
+package com.example.tp3_parcial_belgrano_grupo4.data.database.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
@@ -13,4 +13,7 @@ interface SavedDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(saved: List<SavedEntity>)
+
+    @Query("DELETE FROM Saved_table")
+    suspend fun deleteAllSaved()
 }

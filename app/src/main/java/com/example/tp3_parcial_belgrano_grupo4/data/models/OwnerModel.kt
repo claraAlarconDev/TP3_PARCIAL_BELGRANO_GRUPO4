@@ -1,8 +1,10 @@
 package com.example.tp3_parcial_belgrano_grupo4.data.models
 
+import com.google.gson.annotations.SerializedName
+
 data class OwnerModel(
-    val id_Duenio: Int,
-    val nombre: String,
-    val imagen: String, //(String o ByteArray, por ejemplo)
-    val telefono: String
+    @SerializedName("idOwner") val idOwner: Int,
+    @SerializedName("name") val name: String,
+    @SerializedName("image") val image: String,
+    @SerializedName("phone") val phone:String
 )
