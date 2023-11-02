@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace = "com.example.tp3_parcial_belgrano_grupo4"
-    compileSdk = 33
+    compileSdk = 34 //SE REALIZA ACTUALIZACION A 34 PARA FUNCIONAMIENTO
 
     defaultConfig {
         applicationId = "com.example.tp3_parcial_belgrano_grupo4"
         minSdk = 26
-        targetSdk = 33
+        targetSdk = 34 //SE REALIZA ACTUALIZACION A 34 PARA FUNCIONAMIENTO
         versionCode = 1
         versionName = "1.0"
 
