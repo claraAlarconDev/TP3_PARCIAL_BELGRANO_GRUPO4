@@ -4,4 +4,6 @@
     <string name="texto_boton_publicar">Publicar</string>
     <string name="hint_nombre_perro">Nombre del Perro</string>
     <string name="seleccionar_sexo">Seleccione el sexo del perro</string>
+    <string name="seleccionar_raza">Seleccionar Raza</string>
+    <string name="seleccionar_subraza">Seleccionar Subraza</string>
 </resources>

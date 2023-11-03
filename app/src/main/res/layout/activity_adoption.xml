@@ -29,6 +29,18 @@ tools:context=".ui.views.AdoptionActivity">
         android:layout_height="wrap_content"
         android:entries="@array/sexos"
         android:prompt="@string/seleccionar_sexo" />
+    <Spinner
+        android:id="@+id/spinnerRaza"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/razas"
+        android:prompt="@string/seleccionar_raza" />
+
+    <Spinner
+        android:id="@+id/spinnerSubraza"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:prompt="@string/seleccionar_subraza" />
 
     <EditText
         android:id="@+id/editTextDescripcion"
