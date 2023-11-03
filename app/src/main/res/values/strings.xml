@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">TP3_PARCIAL_BELGRANO_GRUPO4</string>
-    <string name="baseUrl">https://dog.ceo/api/breed/</string>
     <string name="texto_boton_publicar">Publicar</string>
     <string name="hint_nombre_perro">Nombre del Perro</string>
     <string name="seleccionar_sexo">Seleccione el sexo del perro</string>
     <string name="seleccionar_raza">Seleccionar Raza</string>
     <string name="seleccionar_subraza">Seleccionar Subraza</string>
+    <string name="base_url">https://dog.ceo/api/</string>
 </resources>

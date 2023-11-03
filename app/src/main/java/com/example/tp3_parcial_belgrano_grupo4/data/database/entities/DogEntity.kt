@@ -1,4 +1,5 @@
 package com.example.tp3_parcial_belgrano_grupo4.data.database.entities
+
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -16,8 +17,11 @@ data class DogEntity(
     @ColumnInfo(name = "observations") val observations: String,
     @ColumnInfo(name = "adopted") val adopted: Boolean,
     @ColumnInfo(name = "idOwner") val idOwner: Int,
-    @ColumnInfo(name = "idBreed") val idBreed: Int
+    @ColumnInfo(name = "idBreed") val idBreed: Int,
+    val location: String,
+    val weight: String
 )
+
 //Ejemplo por si deseas tomar en cuenta
 //Funcion de extension para Database
 fun Dog.toDatabase() = DogEntity(
@@ -28,5 +32,7 @@ fun Dog.toDatabase() = DogEntity(
     observations = observations,
     adopted = adopted,
     idOwner = idOwner,
-    idBreed = idBreed
+    idBreed = idBreed,
+    location = location,
+    weight = weight
 )

@@ -1,8 +1,5 @@
 package com.example.tp3_parcial_belgrano_grupo4.domain.model
 
-import androidx.lifecycle.LifecycleOwner
-import androidx.room.ColumnInfo
-import androidx.room.PrimaryKey
 import com.example.tp3_parcial_belgrano_grupo4.data.database.entities.DogEntity
 import com.example.tp3_parcial_belgrano_grupo4.data.models.DogModel
 
@@ -17,9 +14,37 @@ data class Dog(
     val description: String,
     val observations: String,
     val adopted: Boolean,
-    val idOwner:  Int,
-    val idBreed:Int
+    val idOwner: Int,
+    val idBreed: Int,
+    val location: String,
+    val weight: String
 )
-    //FUNCION DE EXTENSION - DEVUELVE UN OBJETO DOG
-    fun DogModel.toDomain()= Dog(idDog,name,age,sex,description,observations,adopted, idOwner ,idBreed)
-    fun DogEntity.toDomain() = Dog(idDog,name,age,sex,description,observations,adopted, idOwner ,idBreed)
+
+//FUNCION DE EXTENSION - DEVUELVE UN OBJETO DOG
+fun DogModel.toDomain() = Dog(
+    idDog,
+    name,
+    age,
+    sex,
+    description,
+    observations,
+    adopted,
+    idOwner,
+    idBreed,
+    location,
+    weight
+)
+
+fun DogEntity.toDomain() = Dog(
+    idDog,
+    name,
+    age,
+    sex,
+    description,
+    observations,
+    adopted,
+    idOwner,
+    idBreed,
+    location,
+    weight
+)

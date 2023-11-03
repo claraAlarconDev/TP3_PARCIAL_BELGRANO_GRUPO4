@@ -14,9 +14,7 @@ android {
     defaultConfig {
         applicationId = "com.example.tp3_parcial_belgrano_grupo4"
         minSdk = 26
-
         targetSdk = 34
-
         versionCode = 1
         versionName = "1.0"
 
