@@ -11,7 +11,6 @@ class TP3ParcialApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
-        Config.baseUrl = resources.getString((R.string.baseUrl))
+        Config.baseUrl = resources.getString((R.string.base_url))
     }
 }
