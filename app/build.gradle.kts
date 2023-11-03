@@ -1,20 +1,20 @@
 plugins {
     kotlin("kapt")
-    kotlin("android") //**
-    kotlin("kotlin-android") //**
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("com.google.dagger.hilt.android")//***
+    id("com.google.dagger.hilt.android")
+
 }
 
 android {
     namespace = "com.example.tp3_parcial_belgrano_grupo4"
-    compileSdk= 33
+    compileSdk = 34
+
 
     defaultConfig {
         applicationId = "com.example.tp3_parcial_belgrano_grupo4"
         minSdk = 26
-        targetSdk= 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -31,11 +31,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         viewBinding = true
@@ -113,6 +113,7 @@ dependencies {
     // For local unit tests
     testImplementation("com.google.dagger:hilt-android-testing:2.48.1")
     kaptTest("com.google.dagger:hilt-compiler:2.48.1")
+
 
     //Rooms
     val room_version = "2.5.0"
