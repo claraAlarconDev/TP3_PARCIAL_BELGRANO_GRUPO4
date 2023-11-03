@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">TP3_PARCIAL_BELGRANO_GRUPO4</string>
     <string name="baseUrl">https://dog.ceo/api/breed/</string>
+
+    //Navigation Drawer
+    <string name="title_profile">Profile</string>
+    <string name="title_setting">Setting</string>
+
 </resources>

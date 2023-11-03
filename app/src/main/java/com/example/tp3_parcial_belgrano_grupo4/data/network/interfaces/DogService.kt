@@ -10,12 +10,5 @@ import javax.inject.Inject
 //Clase inyectable (Dagger Hilt)
 class DogService @Inject constructor(private val api:DogsApi){
 
-    suspend fun getDogs(): List<DogModel>{
-        return withContext(Dispatchers.IO){
-            val response = api.getAllDogs()
-            //Evalua si es nulo - si lo es devuelve la lista vacia
-            response.body() ?: emptyList()
-        }
-    }
 }
 
