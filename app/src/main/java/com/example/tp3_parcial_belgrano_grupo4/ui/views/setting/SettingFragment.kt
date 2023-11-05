@@ -6,27 +6,40 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.example.tp3_parcial_belgrano_grupo4.R
+import com.example.tp3_parcial_belgrano_grupo4.databinding.FragmentHomeBinding
+import com.example.tp3_parcial_belgrano_grupo4.databinding.FragmentSettingBinding
+import com.example.tp3_parcial_belgrano_grupo4.ui.views.home.HomeViewModel
 
 class SettingFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = SettingFragment()
-    }
+    private var _binding: FragmentSettingBinding? = null
 
-    private lateinit var viewModel: SettingViewModel
+    private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_setting, container, false)
+        val settingViewModel =
+            ViewModelProvider(this).get(SettingViewModel:: class.java)
+
+        _binding = FragmentSettingBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+
+        val textView: TextView = binding.textSetting
+        settingViewModel.text.observe(viewLifecycleOwner) {
+            textView.text = it
+        }
+
+        return root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SettingViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

@@ -1,12 +1,12 @@
-package com.example.tp3_parcial_belgrano_grupo4.ui.views.setting
+package com.example.tp3_parcial_belgrano_grupo4.ui.views.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class SettingViewModel : ViewModel() {
+class HomeViewModel : ViewModel() {
     private val _text = MutableLiveData<String>().apply {
-        value = "This is Setting Fragment"
+        value = "This is Home Fragment"
     }
     val text: LiveData<String> = _text
 }
