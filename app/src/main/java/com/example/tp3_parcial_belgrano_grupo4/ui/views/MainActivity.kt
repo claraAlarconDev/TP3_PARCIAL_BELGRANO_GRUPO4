@@ -78,24 +78,21 @@ class MainActivity : AppCompatActivity() {
 
 }
 */
-
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.tp3_parcial_belgrano_grupo4.R
-import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.navigation.NavigationView
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
 
     private lateinit var navHostFragment: NavHostFragment
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navigationView: NavigationView
-    private lateinit var toolbar: MaterialToolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -104,30 +101,27 @@ class MainActivity : AppCompatActivity() {
         drawerLayout = findViewById(R.id.drawer_layout)
         navigationView = findViewById(R.id.navigation_view)
         navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        toolbar = findViewById(R.id.topAppbar)
 
-        // Configurar NavigationView con NavController
+        setupDrawerLayout()
+    }
+    private fun setupDrawerLayout(){
         val navController = navHostFragment.navController
         navigationView.setupWithNavController(navController)
 
-        // Configurar AppBar
-        setSupportActionBar(toolbar)
-        val appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
-        toolbar.setupWithNavController(navController, appBarConfiguration)
+        NavigationUI.setupActionBarWithNavController(this, navController,drawerLayout)
 
-        // Listener para cuando se realiza la navegacion
-        navController.addOnDestinationChangedListener { _, _, _ ->
+        navController.addOnDestinationChangedListener{ _, _, _ ->
+            // Aca le digo que quiero que mi icono izquierdo de la appbar sea el del drawer
             supportActionBar?.setHomeAsUpIndicator(R.drawable.menu_24)
         }
     }
-
     override fun onSupportNavigateUp(): Boolean {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
         } else {
             drawerLayout.openDrawer(GravityCompat.START)
         }
+
         return false
     }
 }
-
