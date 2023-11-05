@@ -8,7 +8,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tp3_parcial_belgrano_grupo4.databinding.ActivityAdoptionBinding
 import com.example.tp3_parcial_belgrano_grupo4.domain.model.Dog
-import com.example.tp3_parcial_belgrano_grupo4.ui.views.models.AdopcionViewModel
+import com.example.tp3_parcial_belgrano_grupo4.ui.views.viewModels.AdopcionViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -1,4 +1,4 @@
-package com.example.tp3_parcial_belgrano_grupo4.ui.views.models
+package com.example.tp3_parcial_belgrano_grupo4.ui.views.viewModels
 
 import android.content.Context
 import android.util.Log
