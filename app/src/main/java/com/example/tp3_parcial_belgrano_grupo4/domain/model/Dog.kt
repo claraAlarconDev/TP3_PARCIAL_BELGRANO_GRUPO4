@@ -1,7 +1,7 @@
 package com.example.tp3_parcial_belgrano_grupo4.domain.model
 
 import com.example.tp3_parcial_belgrano_grupo4.data.database.entities.DogEntity
-import com.example.tp3_parcial_belgrano_grupo4.data.models.DogModel
+
 
 //Ejemplo por si deseas tomar en cuenta
 
@@ -15,36 +15,26 @@ data class Dog(
     val observations: String,
     val adopted: Boolean,
     val idOwner: Int,
-    val idBreed: Int,
+    val breed: String,
+    val subBreed: String,
     val location: String,
     val weight: String
 )
 
-//FUNCION DE EXTENSION - DEVUELVE UN OBJETO DOG
-fun DogModel.toDomain() = Dog(
-    idDog,
-    name,
-    age,
-    sex,
-    description,
-    observations,
-    adopted,
-    idOwner,
-    idBreed,
-    location,
-    weight
-)
 
-fun DogEntity.toDomain() = Dog(
-    idDog,
-    name,
-    age,
-    sex,
-    description,
-    observations,
-    adopted,
-    idOwner,
-    idBreed,
-    location,
-    weight
-)
+fun DogEntity.toDomain(): Dog {
+    return Dog(
+        idDog,
+        name,
+        age,
+        sex,
+        description,
+        observations,
+        adopted,
+        idOwner,
+        breed,
+        subBreed,
+        location,
+        weight
+    )
+}

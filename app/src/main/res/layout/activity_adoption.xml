@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- activity_adoption.xml -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical"
-android:padding="16dp"
-tools:context=".ui.views.AdoptionActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ui.views.AdoptionActivity">
 
-<!-- elementos de la vista -->
     <EditText
         android:id="@+id/editTextNombre"
         android:layout_width="match_parent"
@@ -29,18 +28,38 @@ tools:context=".ui.views.AdoptionActivity">
         android:layout_height="wrap_content"
         android:entries="@array/sexos"
         android:prompt="@string/seleccionar_sexo" />
+
+    <Button
+        android:id="@+id/selectRazaButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Seleccionar Raza" />
+
     <Spinner
         android:id="@+id/spinnerRaza"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/razas"
         android:prompt="@string/seleccionar_raza" />
+
 
     <Spinner
         android:id="@+id/spinnerSubraza"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:prompt="@string/seleccionar_subraza" />
+
+    <Spinner
+        android:id="@+id/spinnerProvincia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:prompt="@array/provincias" />
+
+    <EditText
+        android:id="@+id/editTextPeso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:hint="Peso del Perro" />
 
     <EditText
         android:id="@+id/editTextDescripcion"
@@ -57,10 +76,17 @@ tools:context=".ui.views.AdoptionActivity">
         android:hint="Observaciones"
         android:inputType="textMultiLine"
         android:lines="4" />
+    <EditText
+        android:id="@+id/editTextUserId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Ingrese su ID de Usuario" />
 
     <Button
         android:id="@+id/botonPublicar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Publicar" />
+
 </LinearLayout>

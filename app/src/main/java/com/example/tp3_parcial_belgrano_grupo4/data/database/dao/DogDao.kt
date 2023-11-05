@@ -16,4 +16,7 @@ interface DogDao {
 
     @Query("DELETE FROM Dog_table")
     suspend fun deleteAllDogs()
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(dog: DogEntity)
 }

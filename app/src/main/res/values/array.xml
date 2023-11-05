@@ -6,21 +6,10 @@
         <item>Hembra</item>
     </string-array>
 
-    <string-array name="razas">
-        <item>Afghan</item>
-        <item>Basset</item>
-        <!-- Agregar otras razas según tu aplicación -->
-    </string-array>
-
-    <string-array name="subrazas_afghan">
-        <item>Subraza Afghan 1</item>
-        <item>Subraza Afghan 2</item>
-        <!-- Agregar otras subrazas según la raza -->
-    </string-array>
-
-    <string-array name="subrazas_basset">
-        <item>Subraza Basset 1</item>
-        <item>Subraza Basset 2</item>
-        <!-- Agregar otras subrazas según la raza -->
-    </string-array>
+    <array name="provincias">
+        <item>Buenos Aires</item>
+        <item>Córdoba</item>
+        <item>Santa Fe</item>
+        <!-- Agrega más provincias según sea necesario -->
+    </array>
 </resources>
