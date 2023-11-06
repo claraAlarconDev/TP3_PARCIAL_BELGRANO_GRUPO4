@@ -29,7 +29,7 @@ object RoomModule {
     @Provides
     fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase =
         Room.databaseBuilder(context, AppDatabase::class.java, APP_DATABASE_NAME)
-            .addMigrations(MIGRATION_1_2) // Agrega la migración aquí
+            .fallbackToDestructiveMigration()
             .build()
 
     @Singleton

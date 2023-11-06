@@ -18,7 +18,7 @@ data class DogEntity(
     @ColumnInfo(name = "adopted") val adopted: Boolean,
     @ColumnInfo(name = "idOwner") val idOwner: Int,
     @ColumnInfo(name = "breed") val breed: String,
-    @ColumnInfo(name = "subBreed") val subBreed: String,
+    @ColumnInfo(name = "subBreed") val subBreed: String?,
     val location: String,
     val weight: String,
     val photos: String

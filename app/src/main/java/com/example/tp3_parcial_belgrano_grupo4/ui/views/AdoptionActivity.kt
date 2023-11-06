@@ -27,6 +27,13 @@ class AdoptionActivity : AppCompatActivity() {
                 val razaSeleccionada = parent?.getItemAtPosition(position).toString()
                 viewModel.obtenerSubrazas(razaSeleccionada)
                 val tieneSubrazas = viewModel.tieneSubrazas(razaSeleccionada)
+
+                // Verificar si la raza seleccionada tiene subrazas
+                if (tieneSubrazas) {
+                    binding.spinnerSubraza.visibility = View.VISIBLE
+                } else {
+                    binding.spinnerSubraza.visibility = View.INVISIBLE
+                }
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -74,7 +81,7 @@ class AdoptionActivity : AppCompatActivity() {
             val observaciones = binding.editTextObservaciones.text.toString()
             val idOwner = binding.editTextUserId.text.toString().toIntOrNull() ?: 0
             val raza = binding.spinnerRaza.selectedItem.toString()
-            val subraza = binding.spinnerSubraza.selectedItem.toString()
+            val subraza = binding.spinnerSubraza.selectedItem?.toString() ?: ""
             val ubicacion = binding.spinnerProvincia.selectedItem.toString()
             val peso = binding.editTextPeso.text.toString()
             val fotos = listOf(
@@ -89,9 +96,9 @@ class AdoptionActivity : AppCompatActivity() {
             )
 
             Toast.makeText(this@AdoptionActivity, "Se ha publicado un perro en adopción", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this@AdoptionActivity, AdoptionActivity::class.java)
-            startActivity(intent)
+            val intent = intent
             finish()
+            startActivity(intent)
         }
     }
 }

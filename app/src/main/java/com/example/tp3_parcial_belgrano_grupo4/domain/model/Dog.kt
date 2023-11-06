@@ -16,7 +16,7 @@ data class Dog(
     val adopted: Boolean,
     val idOwner: Int,
     val breed: String,
-    val subBreed: String,
+    val subBreed: String?,
     val location: String,
     val weight: String,
     val photos: String
