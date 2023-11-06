@@ -10,7 +10,6 @@ android {
     namespace = "com.example.tp3_parcial_belgrano_grupo4"
     compileSdk = 34
 
-
     defaultConfig {
         applicationId = "com.example.tp3_parcial_belgrano_grupo4"
         minSdk = 26
