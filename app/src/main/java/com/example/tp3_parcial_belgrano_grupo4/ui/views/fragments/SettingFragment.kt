@@ -1,4 +1,4 @@
-package com.example.tp3_parcial_belgrano_grupo4.ui.views.setting
+package com.example.tp3_parcial_belgrano_grupo4.ui.views.fragments
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -7,10 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.example.tp3_parcial_belgrano_grupo4.R
-import com.example.tp3_parcial_belgrano_grupo4.databinding.FragmentHomeBinding
+import androidx.appcompat.app.AppCompatActivity
 import com.example.tp3_parcial_belgrano_grupo4.databinding.FragmentSettingBinding
-import com.example.tp3_parcial_belgrano_grupo4.ui.views.home.HomeViewModel
+import com.example.tp3_parcial_belgrano_grupo4.ui.views.viewmodels.SettingViewModel
 
 class SettingFragment : Fragment() {
 

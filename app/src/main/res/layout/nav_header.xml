@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
+
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/profileImage"
         android:layout_width="50dp"
