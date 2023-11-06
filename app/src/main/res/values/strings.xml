@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">TP3_PARCIAL_BELGRANO_GRUPO4</string>
     <string name="base_url">https://dog.ceo/api/</string>
+    <string name="user_name">Martina</string>
+    <string name="user_name_hint">Nombre</string>
+    <string name="user_pass_hint">Password</string>
+    <string name="user_phone_hint">Telefono</string>
+    <string name="upload_image">Subir Foto</string>
+    <string name="login_tittle">Login</string>
 </resources>
