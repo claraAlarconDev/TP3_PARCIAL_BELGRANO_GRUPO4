@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navgraph"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.tp3_parcial_belgrano_grupo4.ui.fragments.HomeFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/home_fragment"
+        />
+
+    <fragment
+        android:id="@+id/favoritos"
+        android:name="com.example.tp3_parcial_belgrano_grupo4.ui.fragments.FavoritosFragment"
+        android:label="favoritos_fragment"
+        tools:layout="@layout/favoritos_fragment" />
+
+    <fragment
+        android:id="@+id/publicacion"
+        android:name="com.example.tp3_parcial_belgrano_grupo4.ui.fragments.PublicacionFragment"
+        android:label="publicacion_fragment"
+        tools:layout="@layout/publicacion_fragment" />
+
+    <fragment
+        android:id="@+id/adopcion"
+        android:name="com.example.tp3_parcial_belgrano_grupo4.ui.fragments.AdopcionFragment"
+        android:label="adopcion_fragment"
+        tools:layout="@layout/adopcion_fragment" />
+</navigation>

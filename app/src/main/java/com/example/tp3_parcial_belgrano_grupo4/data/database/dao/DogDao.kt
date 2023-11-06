@@ -16,4 +16,7 @@ interface DogDao {
 
     @Query("DELETE FROM Dog_table")
     suspend fun deleteAllDogs()
+
+    @Query("SELECT * FROM Dog_table WHERE isAdopted == 0")
+    suspend fun getAllDogsWhereIsAdoptedFalse(): List<DogEntity>
 }
