@@ -1,9 +1,17 @@
 <resources>
     <string name="app_name">TP3_PARCIAL_BELGRANO_GRUPO4</string>
     <string name="texto_boton_publicar">Publicar</string>
-    <string name="hint_nombre_perro">Nombre del Perro</string>
+    <string name="nombre_perro">Nombre del Perro</string>
+    <string name="edad_perro">Edad del perro</string>
     <string name="seleccionar_sexo">Seleccione el sexo del perro</string>
     <string name="seleccionar_raza">Seleccionar Raza</string>
     <string name="seleccionar_subraza">Seleccionar Subraza</string>
+    <string name="peso_perro">Peso</string>
+    <string name="descripcion_perro">Ingrese una descripcion para el perro</string>
+    <string name="observaciones_perro">Ingrese una observacion</string>
+    <string name="url_foto">Ingrese la URL de la foto</string>
+    <string name="id_usuario">Ingrese su numero de celular</string>
+    <string name="boton_publicar">Publicar</string>
     <string name="base_url">https://dog.ceo/api/</string>
+    <string name="encabezado_publicacion">Publicacion de Perro</string>
 </resources>

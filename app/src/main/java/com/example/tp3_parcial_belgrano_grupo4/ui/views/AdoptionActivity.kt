@@ -16,12 +16,19 @@ import dagger.hilt.android.AndroidEntryPoint
 class AdoptionActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAdoptionBinding
     private val viewModel: AdopcionViewModel by viewModels()
+    private var sexo = "Macho"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAdoptionBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewModel.obtenerRazas()
+        binding.botonMacho.setOnClickListener{
+            sexo = "Macho"
+        }
+        binding.botonHembra.setOnClickListener {
+            sexo = "Hembra"
+        }
         binding.spinnerRaza.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val razaSeleccionada = parent?.getItemAtPosition(position).toString()
@@ -29,10 +36,13 @@ class AdoptionActivity : AppCompatActivity() {
                 val tieneSubrazas = viewModel.tieneSubrazas(razaSeleccionada)
 
                 // Verificar si la raza seleccionada tiene subrazas
-                if (tieneSubrazas) {
+                if (!tieneSubrazas) {
                     binding.spinnerSubraza.visibility = View.VISIBLE
+                    // Si tiene subrazas, dejamos que el usuario seleccione una
+                    binding.spinnerSubraza.prompt = ""
                 } else {
-                    binding.spinnerSubraza.visibility = View.INVISIBLE
+                    binding.spinnerSubraza.visibility = View.VISIBLE
+                    binding.spinnerSubraza.prompt = "El perro no tiene sub-raza"
                 }
             }
 
@@ -76,7 +86,7 @@ class AdoptionActivity : AppCompatActivity() {
         binding.botonPublicar.setOnClickListener {
             val nombre = binding.editTextNombre.text.toString()
             val edad = binding.editTextEdad.text.toString().toIntOrNull() ?: 0
-            val sexo = binding.spinnerSexo.selectedItem.toString()
+            val sexo = this.sexo
             val descripcion = binding.editTextDescripcion.text.toString()
             val observaciones = binding.editTextObservaciones.text.toString()
             val idOwner = binding.editTextUserId.text.toString().toIntOrNull() ?: 0

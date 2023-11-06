@@ -1,5 +1,12 @@
 <!-- activity_adoption.xml -->
-
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ui.views.AdoptionActivity">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,96 +16,203 @@
     android:padding="16dp"
     tools:context=".ui.views.AdoptionActivity">
 
+    <!-- Encabezado -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/encabezado_publicacion"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal" />
+
+    <!-- Información del Perro -->
     <EditText
         android:id="@+id/editTextNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre del Perro" />
+        style="@style/AppText"
+        android:hint="@string/nombre_perro" />
 
     <EditText
         android:id="@+id/editTextEdad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
-        android:hint="Edad del Perro" />
+        style="@style/AppText"
+        android:hint="@string/edad_perro" />
 
-    <Spinner
-        android:id="@+id/spinnerSexo"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/sexos"
-        android:prompt="@string/seleccionar_sexo" />
+        android:orientation="horizontal"
+        style="@style/AppText">
 
+        <RadioButton
+            android:id="@+id/botonMacho"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            style="@style/AppText"
+            android:text="Macho" />
 
-    <Spinner
-        android:id="@+id/spinnerRaza"
+        <RadioButton
+            android:id="@+id/botonHembra"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            style="@style/AppText"
+            android:text="Hembra" />
+    </LinearLayout>
+    <!-- Raza y Subraza -->
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:prompt="@string/seleccionar_raza" />
+        android:orientation="vertical">
 
+        <TextView
+            style="@style/AppText"
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Ingrese la raza del perro" />
+    </LinearLayout>
 
-    <Spinner
-        android:id="@+id/spinnerSubraza"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:prompt="@string/seleccionar_subraza"/>
+        android:orientation="horizontal">
 
-    <Spinner
-        android:id="@+id/spinnerProvincia"
+        <Spinner
+            android:id="@+id/spinnerRaza"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/AppText"
+            android:prompt="@string/seleccionar_raza"
+            tools:visibility="visible" />
+
+        <Spinner
+            android:id="@+id/spinnerSubraza"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/AppText"
+            android:prompt="@string/seleccionar_subraza" />
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:prompt="@array/provincias" />
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editTextPeso"
+        <TextView
+            android:id="@+id/provinciaText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/AppText"
+            android:layout_weight="1"
+            android:text="Ingrese la provincia" />
+    </LinearLayout>
+
+    <!-- Provincia y Peso -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:hint="Peso del Perro" />
+        android:orientation="horizontal">
 
+        <Spinner
+            android:id="@+id/spinnerProvincia"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            style="@style/AppText"
+            android:prompt="@array/provincias" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/pesoText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/AppText"
+            android:layout_weight="1"
+            android:text="Ingrese el peso" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editTextPeso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            style="@style/AppText"
+            android:hint="@string/peso_perro" />
+    </LinearLayout>
+
+    <!-- Descripción y Observaciones -->
     <EditText
         android:id="@+id/editTextDescripcion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Descripción del Perro"
-        android:inputType="textMultiLine"
-        android:lines="4" />
+        android:hint="@string/descripcion_perro"
+        style="@style/AppText"
+        android:lines="1" />
 
     <EditText
         android:id="@+id/editTextObservaciones"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Observaciones"
-        android:inputType="textMultiLine"
-        android:lines="4" />
-    <EditText
-        android:id="@+id/editTextUserId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:hint="Ingrese su ID de Usuario" />
+        android:hint="@string/observaciones_perro"
+        style="@style/AppText"
+        android:lines="1"/>
+
+    <!-- Fotos -->
     <EditText
         android:id="@+id/editTextFoto1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="URL de la Foto 1" />
+        android:hint="@string/url_foto"
+        style="@style/AppText"
+        android:lines="1"/>
 
     <EditText
         android:id="@+id/editTextFoto2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="URL de la Foto 2" />
+        style="@style/AppText"
+        android:hint="@string/url_foto" />
 
     <EditText
         android:id="@+id/editTextFoto3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="URL de la Foto 3" />
+        style="@style/AppText"
+        android:hint="@string/url_foto" />
+
+    <!-- ID de Usuario y Botón de Publicar -->
+    <EditText
+        android:id="@+id/editTextUserId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        style="@style/AppText"
+        android:hint="@string/id_usuario" />
 
     <Button
         android:id="@+id/botonPublicar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Publicar" />
+        style="@style/AppText"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/boton_publicar" />
 
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>
