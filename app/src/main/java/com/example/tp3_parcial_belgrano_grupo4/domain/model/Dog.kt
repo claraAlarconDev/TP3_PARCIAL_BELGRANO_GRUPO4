@@ -18,7 +18,8 @@ data class Dog(
     val breed: String,
     val subBreed: String,
     val location: String,
-    val weight: String
+    val weight: String,
+    val photos: String
 )
 
 
@@ -35,6 +36,7 @@ fun DogEntity.toDomain(): Dog {
         breed,
         subBreed,
         location,
-        weight
+        weight,
+        photos
     )
 }

@@ -1,38 +1,35 @@
 package com.example.tp3_parcial_belgrano_grupo4.ui.views
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tp3_parcial_belgrano_grupo4.databinding.ActivityAdoptionBinding
-import com.example.tp3_parcial_belgrano_grupo4.domain.model.Dog
-import com.example.tp3_parcial_belgrano_grupo4.ui.views.viewModels.AdopcionViewModel
+import com.example.tp3_parcial_belgrano_grupo4.ui.viewModels.AdopcionViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class AdoptionActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAdoptionBinding
-
     private val viewModel: AdopcionViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAdoptionBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        binding.selectRazaButton.setOnClickListener {
-            viewModel.obtenerRazas()
-        }
-
+        viewModel.obtenerRazas()
         binding.spinnerRaza.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val razaSeleccionada = parent?.getItemAtPosition(position).toString()
                 viewModel.obtenerSubrazas(razaSeleccionada)
+                val tieneSubrazas = viewModel.tieneSubrazas(razaSeleccionada)
             }
 
-                override fun onNothingSelected(parent: AdapterView<*>?) {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
                 // No hacer nada
             }
         }
@@ -56,6 +53,7 @@ class AdoptionActivity : AppCompatActivity() {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             binding.spinnerSubraza.adapter = adapter
         }
+
         viewModel.cargarProvincias(applicationContext)
 
         viewModel.provincias.observe(this) { provinciasList ->
@@ -79,22 +77,21 @@ class AdoptionActivity : AppCompatActivity() {
             val subraza = binding.spinnerSubraza.selectedItem.toString()
             val ubicacion = binding.spinnerProvincia.selectedItem.toString()
             val peso = binding.editTextPeso.text.toString()
-            val nuevoPerro = Dog(
-                name = nombre,
-                age = edad,
-                sex = sexo,
-                description = descripcion,
-                observations = observaciones,
-                adopted = false,
-                idOwner = idOwner,
-                breed = raza,
-                subBreed = subraza,
-                location = ubicacion,
-                weight = peso
+            val fotos = listOf(
+                binding.editTextFoto1.text.toString(),
+                binding.editTextFoto2.text.toString(),
+                binding.editTextFoto3.text.toString()
             )
 
-            viewModel.insertarNuevoPerro(nuevoPerro)
-        }
+            viewModel.insertarNuevoPerro(
+                nombre, edad, sexo, descripcion, observaciones,
+                idOwner, raza, subraza, ubicacion, peso, fotos
+            )
 
+            Toast.makeText(this@AdoptionActivity, "Se ha publicado un perro en adopción", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this@AdoptionActivity, AdoptionActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }

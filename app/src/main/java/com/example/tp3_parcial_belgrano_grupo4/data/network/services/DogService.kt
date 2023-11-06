@@ -1,6 +1,7 @@
-package com.example.tp3_parcial_belgrano_grupo4.data.network.interfaces
+package com.example.tp3_parcial_belgrano_grupo4.data.network.services
 
 import com.example.tp3_parcial_belgrano_grupo4.data.models.DogApiResponse
+import com.example.tp3_parcial_belgrano_grupo4.data.network.interfaces.DogsApi
 import retrofit2.Call
 import javax.inject.Inject
 
@@ -19,8 +20,13 @@ class DogService @Inject constructor(
         return api.getRandomImage()
     }
 
-    fun getImagesByBreed(breed: String): Call<DogApiResponse<List<String>>> {
-        return api.getImagesByBreed(breed)
+    fun getImagesByBreed(breed: String, limit: Int): Call<DogApiResponse<List<String>>> {
+        return api.getImagesByBreed(breed, limit)
+    }
+
+    fun getImagesBySubBreed(breed: String, subBreed: String, limit: Int): Call<DogApiResponse<List<String>>>
+    {
+        return api.getImagesBySubBreed(breed, subBreed, limit)
     }
 
     fun listAllSubBreeds(breed: String): Call<DogApiResponse<List<String>>> {

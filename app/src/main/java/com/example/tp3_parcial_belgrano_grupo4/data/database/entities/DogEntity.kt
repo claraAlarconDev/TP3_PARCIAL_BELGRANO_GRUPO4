@@ -20,7 +20,8 @@ data class DogEntity(
     @ColumnInfo(name = "breed") val breed: String,
     @ColumnInfo(name = "subBreed") val subBreed: String,
     val location: String,
-    val weight: String
+    val weight: String,
+    val photos: String
 )
 
 //Ejemplo por si deseas tomar en cuenta
@@ -36,5 +37,6 @@ fun Dog.toDatabase() = DogEntity(
     breed = breed,
     subBreed = subBreed,
     location = location,
-    weight = weight
+    weight = weight,
+    photos = photos
 )

@@ -12,8 +12,18 @@ interface DogsApi {
     @GET("breeds/image/random")
     fun getRandomImage(): Call<DogApiResponse<String>>
 
-    @GET("breed/{breed}/images")
-    fun getImagesByBreed(@Path("breed") breed: String): Call<DogApiResponse<List<String>>>
+    @GET("breed/{breed}/images/random/{limit}")
+    fun getImagesByBreed(
+        @Path("breed") breed: String,
+        @Path("limit") limit: Int
+    ): Call<DogApiResponse<List<String>>>
+
+    @GET("breed/{breed}/{subBreed}/images/random/{limit}")
+    fun getImagesBySubBreed(
+        @Path("breed") breed: String,
+        @Path("subBreed") subBreed: String,
+        @Path("limit") limit: Int
+    ): Call<DogApiResponse<List<String>>>
 
     @GET("breed/{breed}/list")
     fun listAllSubBreeds(@Path("breed") breed: String): Call<DogApiResponse<List<String>>>

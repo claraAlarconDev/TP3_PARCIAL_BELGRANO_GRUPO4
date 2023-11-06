@@ -1,6 +1,7 @@
 package com.example.tp3_parcial_belgrano_grupo4
 
 import android.app.Application
+import androidx.room.Room
 import com.example.tp3_parcial_belgrano_grupo4.core.Config
 import dagger.hilt.android.HiltAndroidApp
 
