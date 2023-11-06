@@ -22,26 +22,32 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val loginBtn = binding.loginBtn
-        val userNameInput = binding.userNameLogin.text.toString()
-        val userPhoneInput= binding.userPhoneLogin.text.toString()
-        val userPassInput= binding.userPassLogin.text.toString()
+        val userNameInput = binding.userNameLogin
+        val userPhoneInput= binding.userPhoneLogin
+        val userPassInput= binding.userPassLogin
 
 
         loginBtn.setOnClickListener {
-            if(userNameInput.isNotEmpty() && userPhoneInput.isNotEmpty() && userPassInput.isNotEmpty() ) {
+
+            val userName = userNameInput.text.toString()
+            val userPhone = userPhoneInput.text.toString()
+            val userPass = userPassInput.text.toString()
+
+            if(userName.isNotEmpty() && userPhone.isNotEmpty() && userPass.isNotEmpty() ) {
 
                 val intent = Intent(applicationContext, MainActivity::class.java)
 
-                intent.putExtra("user_name", userNameInput)
-                intent.putExtra("user_phone", userPhoneInput)
+                intent.putExtra("user_name", userName)
+                intent.putExtra("user_phone", userPhone)
 
                 startActivity(intent)
 
-            } else if(userNameInput.isEmpty()){
+                finish()
+            } else if(userName.isEmpty()){
                 showAlertDialog("Cuidado, el nombre de usuario esta vacio")
-            } else if(userPhoneInput.isEmpty()){
+            } else if(userPhone.isEmpty()){
                 showAlertDialog("Cuidado, no has ingresado un telefono")
-            }else if(userPassInput.isEmpty()){
+            }else if(userPass.isEmpty()){
                 showAlertDialog("Cuidado, el nombre de usuario esta vacio")
             }
         }
