@@ -21,7 +21,7 @@
         android:layout_below="@+id/profileImage"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="10dp"
-        android:text="Hola Rebecca"
+        android:text="@string/drawer_header_saludo"
         android:textColor="@color/black"
         android:textSize="16dp"
         android:textStyle="bold" />

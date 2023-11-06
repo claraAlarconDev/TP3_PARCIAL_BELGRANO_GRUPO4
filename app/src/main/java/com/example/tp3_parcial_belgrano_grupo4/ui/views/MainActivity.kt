@@ -1,7 +1,5 @@
 package com.example.tp3_parcial_belgrano_grupo4.ui.views
 
-import android.graphics.Color
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.view.GravityCompat

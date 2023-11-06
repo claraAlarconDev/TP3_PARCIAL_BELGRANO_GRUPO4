@@ -1,4 +1,4 @@
-package com.example.tp3_parcial_belgrano_grupo4.ui.views.fragments
+package com.example.tp3_parcial_belgrano_grupo4.ui.fragments
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -7,28 +7,29 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.example.tp3_parcial_belgrano_grupo4.databinding.FragmentHomeBinding
-import com.example.tp3_parcial_belgrano_grupo4.ui.views.viewmodels.HomeViewModel
+import com.example.tp3_parcial_belgrano_grupo4.databinding.FragmentProfileBinding
+import com.example.tp3_parcial_belgrano_grupo4.ui.viewmodels.ProfileViewModel
 
-class HomeFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+class ProfileFragment : Fragment() {
+
+    private var _binding: FragmentProfileBinding? = null
 
     private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val profileViewModel =
+            ViewModelProvider(this).get(ProfileViewModel:: class.java)
 
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel:: class.java)
-
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
+        val textView: TextView = binding.textProfile
+        profileViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
 
@@ -39,5 +40,4 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }
