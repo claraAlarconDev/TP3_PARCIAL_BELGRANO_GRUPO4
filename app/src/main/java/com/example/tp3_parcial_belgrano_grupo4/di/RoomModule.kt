@@ -15,40 +15,36 @@ import javax.inject.Singleton
 object RoomModule {
     private const val APP_DATABASE_NAME = "app_database"
 
-    @Singleton //Instancia de Singleton
+    @Singleton
     @Provides
-    //Context lo provee Dagger
-    //databaseBuilder : Objeto que nos genera la BBDD
     fun provideAppDatabase(@ApplicationContext context: Context) =
         Room.databaseBuilder(context, AppDatabase::class.java, APP_DATABASE_NAME).build()
 
     @Singleton
     @Provides
-    fun provideDogDao(db: AppDatabase)= db.getDogDao()
+    fun provideDogDao(db: AppDatabase) = db.getDogDao()
 
     @Singleton
     @Provides
-    fun provideBreedDao(db:AppDatabase)= db.getBreedDao()
+    fun provideBreedDao(db: AppDatabase) = db.getBreedDao()
 
     @Singleton
     @Provides
-    fun provideSubBreedDao(db:AppDatabase) = db.getSubBreedDao()
+    fun provideSubBreedDao(db: AppDatabase) = db.getSubBreedDao()
 
     @Singleton
     @Provides
-    fun provideImageDao(db:AppDatabase) = db.getImageDao()
+    fun provideImageDao(db: AppDatabase) = db.getImageDao()
 
     @Singleton
     @Provides
-    fun provideOwnerDao(db:AppDatabase)= db.getOwnerDao()
+    fun provideOwnerDao(db: AppDatabase) = db.getOwnerDao()
 
     @Singleton
     @Provides
-    fun provideFavoriteDao(db:AppDatabase)= db.getFavoriteDao()
+    fun provideFavoriteDao(db: AppDatabase) = db.getFavoriteDao()
 
     @Singleton
     @Provides
     fun provideSavedDao(db: AppDatabase) = db.getSavedDao()
-
-
 }
