@@ -1,4 +1,4 @@
-package com.example.tp3_parcial_belgrano_grupo4.data.network.repositories
+package com.example.tp3_parcial_belgrano_grupo4.data.repositories
 
 import com.example.tp3_parcial_belgrano_grupo4.data.database.dao.DogDao
 import com.example.tp3_parcial_belgrano_grupo4.data.database.entities.DogEntity

@@ -18,13 +18,6 @@ object RoomModule {
 
     private const val APP_DATABASE_NAME = "app_database"
 
-    // Definir la migración de la versión 1 a la versión 2
-    val MIGRATION_1_2: Migration = object : Migration(1, 2) {
-        override fun migrate(database: SupportSQLiteDatabase) {
-            database.execSQL("ALTER TABLE Dog_table ADD COLUMN photos TEXT DEFAULT '' NOT NULL")
-        }
-    }
-
     @Singleton
     @Provides
     fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase =
