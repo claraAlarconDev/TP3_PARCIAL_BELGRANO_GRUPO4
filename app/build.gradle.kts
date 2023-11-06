@@ -1,9 +1,9 @@
 plugins {
     kotlin("kapt")
-    //kotlin("ksp")
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.dagger.hilt.android")
+
 }
 
 android {
@@ -52,6 +52,7 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    implementation("androidx.drawerlayout:drawerlayout:1.1.1")
 
 
     // Fragment
@@ -61,19 +62,22 @@ dependencies {
     implementation("androidx.activity:activity-ktx:1.7.1")
 
     // ViewModel
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
+    implementation("androidx.lifecycle:lifecycle-runtime:2.6.1")
 
     //Corrutinas
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
 
     //Navigation
-    val nav_version = "2.5.3"
+    val nav_version = "2.5.3" //2.5.3
 
     // Java language implementation
     implementation("androidx.navigation:navigation-fragment:$nav_version")
     implementation("androidx.navigation:navigation-ui:$nav_version")
 
     // Kotlin
+    implementation ("androidx.navigation:navigation-fragment:$nav_version")
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 
@@ -102,7 +106,17 @@ dependencies {
 
     //Hilt Dagger
     implementation("com.google.dagger:hilt-android:2.48.1")
-    kapt("com.google.dagger:hilt-compiler:2.48.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.48.1")
+
+
+    // For instrumentation tests
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.48.1")
+    kaptAndroidTest("com.google.dagger:hilt-compiler:2.48.1")
+
+    // For local unit tests
+    testImplementation("com.google.dagger:hilt-android-testing:2.48.1")
+    kaptTest("com.google.dagger:hilt-compiler:2.48.1")
+
 
     //Rooms
     val room_version = "2.5.0"

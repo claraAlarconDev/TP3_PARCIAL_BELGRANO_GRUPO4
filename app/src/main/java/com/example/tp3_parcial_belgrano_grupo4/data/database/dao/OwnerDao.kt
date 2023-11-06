@@ -9,12 +9,13 @@ import com.example.tp3_parcial_belgrano_grupo4.data.database.entities.OwnerEntit
 @Dao
 interface OwnerDao {
     @Query("SELECT * FROM Owner_table")
-    suspend fun getAllOwners(): List<OwnerEntity>
+    fun getAllOwners(): List<OwnerEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(owners: List<OwnerEntity>)
+    fun insertAll(owners: List<OwnerEntity>)
 
     @Query("DELETE FROM Owner_table")
+<<<<<<< HEAD
     suspend fun deleteAllOwners()
 
     @Query("SELECT * FROM Owner_table WHERE idOwner = :id ")
@@ -31,3 +32,7 @@ interface OwnerDao {
 }
 
 data class OwnerImageName(val name: String?, val image: String?)
+=======
+    fun deleteAllOwners()
+}
+>>>>>>> ec4cd4f02cd712085e9b1371f0e8568432b49212
