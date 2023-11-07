@@ -20,11 +20,13 @@ class ImageSliderFragment : Fragment() {
         val imageSlider = view.findViewById<ImageSlider>(R.id.imageSlider)
 
         val slideModels: ArrayList<SlideModel> = ArrayList()
-
-
-
+        slideModels.add(SlideModel(R.drawable.example_slider_img1, ScaleTypes.CENTER_INSIDE))
+        slideModels.add(SlideModel(R.drawable.example_slider_img2, ScaleTypes.CENTER_INSIDE))
+        slideModels.add(SlideModel(R.drawable.example_slider_img3, ScaleTypes.CENTER_INSIDE))
 
         imageSlider.setImageList(slideModels, ScaleTypes.CENTER_CROP)
+
+
 
         return view
     }
