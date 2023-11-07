@@ -1,10 +1,9 @@
-package com.example.tp3_parcial_belgrano_grupo4.ui.viewmodels
+package com.example.tp3_parcial_belgrano_grupo4.ui.viewModels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.tp3_parcial_belgrano_grupo4.domain.GetOwnerAttributeUseCase
-import com.example.tp3_parcial_belgrano_grupo4.domain.UpdateOwnerImageUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

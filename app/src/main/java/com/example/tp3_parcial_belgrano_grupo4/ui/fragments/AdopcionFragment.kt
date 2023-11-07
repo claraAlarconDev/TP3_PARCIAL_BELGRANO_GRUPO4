@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tp3_parcial_belgrano_grupo4.R
 import com.example.tp3_parcial_belgrano_grupo4.adapters.DogsAdapter
 import com.example.tp3_parcial_belgrano_grupo4.data.repositories.DogRepository
-import com.example.tp3_parcial_belgrano_grupo4.ui.viewmodels.AdoptedViewModel
+import com.example.tp3_parcial_belgrano_grupo4.ui.viewModels.AdoptedViewModel
 import javax.inject.Inject
 
 class AdopcionFragment : Fragment() {

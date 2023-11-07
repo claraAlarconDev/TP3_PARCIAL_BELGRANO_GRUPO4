@@ -14,7 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.tp3_parcial_belgrano_grupo4.R
 import com.example.tp3_parcial_belgrano_grupo4.data.repositories.DogRepository
 import com.example.tp3_parcial_belgrano_grupo4.ui.fragments.ImageSliderFragment
-import com.example.tp3_parcial_belgrano_grupo4.ui.viewmodels.DetailViewModel
+import com.example.tp3_parcial_belgrano_grupo4.ui.viewModels.DetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject

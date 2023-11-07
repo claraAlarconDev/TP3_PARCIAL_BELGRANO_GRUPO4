@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import com.example.tp3_parcial_belgrano_grupo4.R
 import com.google.android.material.switchmaterial.SwitchMaterial
 
+
 class SettingFragment : Fragment(R.layout.fragment_setting) {
 
     private lateinit var switchDarkMode: SwitchMaterial

@@ -18,7 +18,8 @@ import com.example.tp3_parcial_belgrano_grupo4.data.database.entities.SavedEntit
 import com.example.tp3_parcial_belgrano_grupo4.data.database.entities.SubBreedEntity
 
 @Database(entities = [DogEntity:: class,BreedEntity:: class, FavoriteEntity:: class, ImageEntity:: class,
-    OwnerEntity:: class, SavedEntity:: class, SubBreedEntity:: class], version = 1)
+    OwnerEntity:: class, SavedEntity:: class, SubBreedEntity:: class], version = 14)
+
 abstract class AppDatabase : RoomDatabase() {
     abstract fun getDogDao(): DogDao
     abstract fun getBreedDao(): BreedDao

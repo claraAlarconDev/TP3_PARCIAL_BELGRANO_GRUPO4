@@ -3,6 +3,8 @@ package com.example.tp3_parcial_belgrano_grupo4.data.repositories
 import androidx.lifecycle.LiveData
 import com.example.tp3_parcial_belgrano_grupo4.data.database.dao.DogDao
 import com.example.tp3_parcial_belgrano_grupo4.data.database.entities.DogEntity
+import com.example.tp3_parcial_belgrano_grupo4.data.database.entities.toDatabase
+import com.example.tp3_parcial_belgrano_grupo4.domain.model.Dog
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -24,7 +26,7 @@ class DogRepository @Inject constructor(
                 "Milu",
                 4,
                 "cattledog",
-                "australian",
+                "",
                 "hembra",
                 "Tierna",
                 "Juguetona",
@@ -39,7 +41,7 @@ class DogRepository @Inject constructor(
                     2,
                     "Cachirulo",
                     4,
-                    "australian",
+                    "affenpinscher",
                     "",
                     "macho",
                     "vagoneta",
@@ -55,7 +57,7 @@ class DogRepository @Inject constructor(
                     3,
                     "Rayo",
                     4,
-                    "beagle",
+                    "african",
                     "",
                     "hembra",
                     "",
@@ -69,7 +71,7 @@ class DogRepository @Inject constructor(
             val dog4 =
                 DogEntity(
                     4, "Canela", 4,
-                    "newfoundland",
+                    "airedale",
                     "",
                     "hembra",
                     "Tierna",
@@ -84,8 +86,8 @@ class DogRepository @Inject constructor(
                 5,
                 "Perrito",
                 4,
-                "wolfhound",
-                "irish",
+                "akita",
+                "",
                 "hembra",
                 "Juguetona",
                 "",
@@ -99,8 +101,8 @@ class DogRepository @Inject constructor(
                 6,
                 "Tomate",
                 4,
-                "cattledog",
-                "australian",
+                "appenzeller",
+                "",
                 "hembra",
                 "Tierna",
                 "Juguetona",
@@ -115,8 +117,8 @@ class DogRepository @Inject constructor(
                     7,
                     "Atun",
                     4,
-                    "bulldog",
-                    "boston",
+                    "australian",
+                    "",
                     "macho",
                     "vagoneta",
                     "callejero",
@@ -131,8 +133,8 @@ class DogRepository @Inject constructor(
                     8,
                     "Tora",
                     4,
-                    "dane",
-                    "great",
+                    "bakharwal",
+                    "",
                     "hembra",
                     "",
                     "",
@@ -145,7 +147,7 @@ class DogRepository @Inject constructor(
             val dog9 =
                 DogEntity(
                     9, "Paca", 4,
-                    "newfoundland",
+                    "basenji",
                     "",
                     "hembra",
                     "Tierna",
@@ -160,7 +162,7 @@ class DogRepository @Inject constructor(
                 10,
                 "Fury",
                 4,
-                "cavapoo",
+                "beagle",
                 "",
                 "hembra",
                 "Juguetona",
@@ -175,7 +177,7 @@ class DogRepository @Inject constructor(
                 11,
                 "Maverick",
                 4,
-                "cavapoo",
+                "borzoi",
                 "",
                 "hembra",
                 "Juguetona",
@@ -190,7 +192,7 @@ class DogRepository @Inject constructor(
                 12,
                 "Territory",
                 4,
-                "cavapoo",
+                "bouvier",
                 "",
                 "hembra",
                 "Juguetona",
@@ -205,7 +207,7 @@ class DogRepository @Inject constructor(
                 13,
                 "Ka",
                 4,
-                "cavapoo",
+                "chow",
                 "",
                 "hembra",
                 "Juguetona",
@@ -234,12 +236,11 @@ class DogRepository @Inject constructor(
             dogDao.insertAll(dogsList)
         }
     }
-
-
     suspend fun clearDogs() {
-        dogDao.deleteAllDogs()
+        withContext(Dispatchers.IO) {
+            dogDao.deleteAllDogs()
+        }
     }
-
     suspend fun getAllDogs(): List<DogEntity> {
         withContext(Dispatchers.IO) {
             insertDogs(emptyList())
@@ -248,10 +249,10 @@ class DogRepository @Inject constructor(
     }
 
     suspend fun getAllDogsWhereIsAdoptedFalse(): List<DogEntity> {
-        withContext(Dispatchers.IO) {
-            insertDogs(emptyList())
+        return withContext(Dispatchers.IO) {
+            // Esta es la operación que se realizará en el hilo de fondo
+            dogDao.getAllDogsWhereIsAdoptedFalse()
         }
-        return dogDao.getAllDogsWhereIsAdoptedFalse()
     }
 
     suspend fun updateDogAdoptionStatus(dogId: Int, isAdopted: Boolean) {
@@ -265,5 +266,11 @@ class DogRepository @Inject constructor(
     suspend fun getAllDogsWhereIsAdoptedTrue(): List<DogEntity> {
         insertDogs(emptyList())
         return dogDao.getAllDogsWhereIsAdoptedTrue()
+    }
+    suspend fun insertDog(dog: Dog) {
+        withContext(Dispatchers.IO) {
+            val dogEntity = dog.toDatabase()
+            dogDao.insert(dogEntity)
+        }
     }
 }

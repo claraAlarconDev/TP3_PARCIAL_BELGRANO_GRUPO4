@@ -6,6 +6,8 @@ import com.example.tp3_parcial_belgrano_grupo4.data.database.entities.OwnerEntit
 import com.example.tp3_parcial_belgrano_grupo4.data.models.DogApiResponse
 import com.example.tp3_parcial_belgrano_grupo4.domain.model.Owner
 import com.example.tp3_parcial_belgrano_grupo4.domain.model.toDomain
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class OwnerRepository @Inject constructor(
@@ -13,9 +15,12 @@ class OwnerRepository @Inject constructor(
 ){
 
 
-    suspend fun insertOwners( owners: List<OwnerEntity>){
-        ownerDao.insertAll(owners)
+    suspend fun insertOwners(owners: List<OwnerEntity>) {
+        withContext(Dispatchers.IO) {
+            ownerDao.insertAll(owners)
+        }
     }
+
 
     suspend fun deleteAllOwners(){
         ownerDao.deleteAllOwners()

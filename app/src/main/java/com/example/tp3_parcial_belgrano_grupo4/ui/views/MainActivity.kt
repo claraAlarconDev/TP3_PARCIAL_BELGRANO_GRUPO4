@@ -6,15 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupWithNavController
 import com.example.tp3_parcial_belgrano_grupo4.R
-import com.example.tp3_parcial_belgrano_grupo4.ui.viewmodels.ProfileViewModel
+import com.example.tp3_parcial_belgrano_grupo4.ui.viewModels.ProfileViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import com.squareup.picasso.Picasso
 import android.view.MenuItem
