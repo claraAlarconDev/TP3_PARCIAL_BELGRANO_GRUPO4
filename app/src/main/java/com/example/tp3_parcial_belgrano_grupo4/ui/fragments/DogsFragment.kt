@@ -38,7 +38,7 @@ class DogsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val isLoading = view.findViewById<View>(R.id.loading)
-        recyclerView = view.findViewById(R.id.rec_dogs)
+        recyclerView = view.findViewById(R.id.adopted_dogs)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = dogsAdapter
 
