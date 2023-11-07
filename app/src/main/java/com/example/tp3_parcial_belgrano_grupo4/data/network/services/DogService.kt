@@ -1,6 +1,7 @@
-package com.example.tp3_parcial_belgrano_grupo4.data.network.interfaces
+package com.example.tp3_parcial_belgrano_grupo4.data.network.services
 
 import com.example.tp3_parcial_belgrano_grupo4.data.models.DogApiResponse
+import com.example.tp3_parcial_belgrano_grupo4.data.network.interfaces.DogsApi
 import retrofit2.Call
 import javax.inject.Inject
 

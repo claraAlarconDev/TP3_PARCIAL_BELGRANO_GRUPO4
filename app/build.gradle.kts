@@ -61,6 +61,9 @@ dependencies {
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
 
+    //ImageSlider
+    implementation ("com.github.denzcoskun:ImageSlideshow:0.1.0")
+
     //Corrutinas
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
 

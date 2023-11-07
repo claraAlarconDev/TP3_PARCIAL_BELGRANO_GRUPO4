@@ -16,5 +16,14 @@ class DogRepository  @Inject constructor(
     suspend fun clearDogs(){
         dogDao.deleteAllDogs()
     }
+    suspend fun updateDogAdoptionStatus(dogId: Int, isAdopted: Boolean) {
+        dogDao.updateAdoptionStatus(dogId, isAdopted)
+    }
+
+    suspend fun insertOneDog(dog:DogEntity){
+        dogDao.insertOne(dog)
+    }
+
+
 
 }

@@ -1,9 +1,11 @@
 package com.example.tp3_parcial_belgrano_grupo4.data.database.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import com.example.tp3_parcial_belgrano_grupo4.data.database.entities.DogEntity
 
 @Dao
@@ -14,6 +16,15 @@ interface DogDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(dogs: List<DogEntity>)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertOne(dog: DogEntity)
+
     @Query("DELETE FROM Dog_table")
     suspend fun deleteAllDogs()
+    @Query("SELECT * FROM Dog_table WHERE idDog = :dogId")
+    fun getDogById(dogId: Int): LiveData<DogEntity>
+
+    @Query("UPDATE Dog_table SET adopted = :adopted WHERE idDog = :dogId")
+    suspend fun updateAdoptionStatus(dogId: Int, adopted: Boolean)
+
 }
