@@ -21,7 +21,7 @@ class ImageSliderFragment : Fragment() {
 
         val slideModels: ArrayList<SlideModel> = ArrayList()
 
-        //// CARGAR LISTA CON LAS FOTOS OBTENIDAS DEL PERRO
+
 
 
         imageSlider.setImageList(slideModels, ScaleTypes.CENTER_CROP)

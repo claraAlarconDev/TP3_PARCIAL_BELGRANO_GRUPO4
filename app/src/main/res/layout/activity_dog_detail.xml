@@ -17,7 +17,7 @@
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
-        android:layout_height="527dp"
+        android:layout_height="300dp"
         android:topLeftRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView"
@@ -32,7 +32,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
                 android:orientation="vertical">
@@ -43,7 +42,8 @@
                     android:layout_height="wrap_content"
                     android:paddingBottom="20dp"
                     android:textSize="30dp"
-                    android:text=""></TextView>
+                    android:text="@string/ejemploNombrePerro"
+                    ></TextView>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -53,13 +53,16 @@
                         android:id="@+id/textViewDetailEdad"
                         android:layout_width="223dp"
                         android:layout_height="wrap_content"
-                        android:text="Edad:"></TextView>
+                        android:text="@string/ejemploEdadPerro"
+
+                        ></TextView>
 
                     <TextView
                         android:id="@+id/textViewDetailUbic"
                         android:layout_width="148dp"
                         android:layout_height="wrap_content"
-                        android:text="Ubicacion:"></TextView>
+                        android:text="@string/ejemploUbicacionPerro"
+                        ></TextView>
                 </LinearLayout>
 
                 <LinearLayout
@@ -71,13 +74,15 @@
                         android:id="@+id/textViewDetailGenero"
                         android:layout_width="82dp"
                         android:layout_height="wrap_content"
-                        android:text="Sex:"></TextView>
+                        android:text="@string/ejemploGeneroPerro"
+                        ></TextView>
 
                     <TextView
                         android:id="@+id/textViewDetailPeso"
                         android:layout_width="139dp"
                         android:layout_height="wrap_content"
-                        android:text="Weight:"></TextView>
+                        android:text="@string/ejemploPesoPerro"
+                        ></TextView>
                 </LinearLayout>
 
             </LinearLayout>
@@ -97,7 +102,7 @@
                     android:src="@drawable/ic_user_placeholder"></ImageView>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="219dp"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:paddingLeft="20dp"
@@ -112,7 +117,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nombre del Usuario"></TextView>
+                        android:text="@string/ejemploNombreDuenio"></TextView>
                 </LinearLayout>
 
                 <ImageButton
@@ -132,7 +137,7 @@
                 android:paddingLeft="30dp"
                 android:paddingTop="30dp"
                 android:paddingRight="30dp"
-                android:text="BLablablblablablabla">
+                android:text="@string/ejemploDescPerro">
 
             </TextView>
 
@@ -157,6 +162,7 @@
             android:layout_width="285dp"
             android:layout_height="60dp"
             android:layout_marginRight="20dp"
+            style="@style/adopt_btn"
             android:text="Adoptame" />
 
         <ImageButton

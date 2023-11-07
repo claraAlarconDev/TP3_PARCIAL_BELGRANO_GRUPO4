@@ -29,11 +29,6 @@ class DogDetailActivity : AppCompatActivity() {
     private lateinit var adoptButton: Button
     private lateinit var btnDetailCall: ImageButton
     private lateinit var favButton: ImageButton
-    private lateinit var textViewDetailPerroNombre:TextView
-    private lateinit var textViewDetailEdad:TextView
-    private lateinit var textViewDetailUbic:TextView
-    private lateinit var textViewDetailGenero:TextView
-    private lateinit var textViewDetailDesc:TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,38 +36,18 @@ class DogDetailActivity : AppCompatActivity() {
 
         detailViewModel = ViewModelProvider(this)[DetailViewModel::class.java]
 
-        textViewDetailPerroNombre = findViewById(R.id.textViewDetailPerroNombre)
-        textViewDetailEdad = findViewById(R.id.textViewDetailEdad)
-        textViewDetailDesc = findViewById(R.id.textViewDetailDesc)
-        textViewDetailGenero = findViewById(R.id.textViewDetailGenero)
-        textViewDetailUbic = findViewById(R.id.textViewDetailUbic)
-
-
 
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragmentContainerView, ImageSliderFragment())
         transaction.commit()
 
 
-
+        val intent = intent
         val dogId = intent.getIntExtra("dogId", 0)
 
-        lifecycleScope.launch {
-            val dog = detailViewModel.fetchDogById(dogId)
 
-            dog.observe(this@DogDetailActivity) { dogEntity ->
-                if (dogEntity != null) {
-                    // Update your UI with the dog's details
-                    textViewDetailPerroNombre.text = dogEntity.name
-                    textViewDetailEdad.text = dogEntity.age.toString()
-                    textViewDetailDesc.text = dogEntity.description
-                    textViewDetailGenero.text = dogEntity.gender
-                    textViewDetailUbic.text = dogEntity.location
-                } else {
-                    // Handle the case where there's an error or the dog is not found
-                }
-            }
-        }
+        ////
+
 
         adoptButton = findViewById(R.id.btnAdopt)
         btnDetailCall = findViewById(R.id.BtnCall)
@@ -96,7 +71,7 @@ class DogDetailActivity : AppCompatActivity() {
         }
 
         btnDetailCall.setOnClickListener{
-            val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:111"))
+            val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:15333444"))
             startActivity(intent)
             finish()
         }

@@ -29,7 +29,7 @@ class AdopcionFragment : Fragment() {
     ): View? {
 
         adoptedViewModel.onCreate()
-        dogsAdapter = DogsAdapter(requireContext(), mutableListOf())
+        dogsAdapter = DogsAdapter(requireContext())
 
         return inflater.inflate(R.layout.adopcion_fragment, container, false)
     }

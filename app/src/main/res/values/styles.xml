@@ -28,4 +28,12 @@
         <item name="android:textColor">@color/dark_purple</item>
     </style>
 
+    <style name="adopt_btn">
+        <item name="android:text">Adoptame</item>
+        <item name="android:fontFamily">sans-serif-thin</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:background">@drawable/rectangular_button</item>
+        <item name="android:textColor">@color/dark_purple</item>
+    </style>
+
 </resources>

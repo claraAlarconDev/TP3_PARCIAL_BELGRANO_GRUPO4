@@ -26,4 +26,12 @@
     <string name="perfil">Perfil</string>
     <string name="configuracion">Configuración </string>
     <string name="nombreDuenio">Dueño</string>
+    <string name="ejemploNombreDuenio">Carlos</string>
+    <string name="ejemploDescPerro">Muy amistoso y tranquilo. Ama jugar con nenes, le asustan los ruidos fuertes</string>
+    <string name="ejemploNombrePerro">Fifi</string>
+    <string name="ejemploEdadPerro">Edad: 3 años</string>
+    <string name="ejemploGeneroPerro">Genero: M</string>
+    <string name="ejemploUbicacionPerro">Ubicacion: BsAs</string>
+    <string name="ejemploPesoPerro">Peso: 5 kg</string>
+
 </resources>
