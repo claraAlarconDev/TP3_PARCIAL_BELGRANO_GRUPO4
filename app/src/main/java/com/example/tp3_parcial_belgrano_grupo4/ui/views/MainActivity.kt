@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
 
         val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
+        //setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
 

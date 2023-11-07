@@ -25,4 +25,6 @@
     <string name="raza">Raza</string>
     <string name="perfil">Perfil</string>
     <string name="configuracion">Configuración </string>
+    <string name="setting_modo_oscuro"> Modo Oscuro</string>
+    <string name="setting_general">Generales</string>
 </resources>
