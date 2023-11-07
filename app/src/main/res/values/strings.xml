@@ -25,6 +25,8 @@
     <string name="raza">Raza</string>
     <string name="perfil">Perfil</string>
     <string name="configuracion">Configuración </string>
+    <string name="setting_modo_oscuro"> Modo Oscuro</string>
+    <string name="setting_general">Generales</string>
     <string name="nombreDuenio">Dueño</string>
     <string name="ejemploNombreDuenio">Carlos</string>
     <string name="ejemploDescPerro">Muy amistoso y tranquilo. Ama jugar con nenes, le asustan los ruidos fuertes</string>
@@ -33,5 +35,4 @@
     <string name="ejemploGeneroPerro">Genero: M</string>
     <string name="ejemploUbicacionPerro">Ubicacion: BsAs</string>
     <string name="ejemploPesoPerro">Peso: 5 kg</string>
-
 </resources>
