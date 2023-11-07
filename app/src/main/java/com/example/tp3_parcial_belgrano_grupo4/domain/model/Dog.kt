@@ -3,48 +3,50 @@ package com.example.tp3_parcial_belgrano_grupo4.domain.model
 import com.example.tp3_parcial_belgrano_grupo4.data.database.entities.DogEntity
 import com.example.tp3_parcial_belgrano_grupo4.data.models.DogModel
 
-//Ejemplo por si deseas tomar en cuenta
-
-//MODELO DE DATO FINAL CON EL QUE TRABAJARA EL DOMINIO Y UI
 data class Dog(
     val idDog: Int = 0,
     val name: String,
     val age: Int,
-    val sex: String,
+    val breed: String,
+    val subBreed: String,
+    val gender: String,
     val description: String,
     val observations: String,
-    val adopted: Boolean,
+    val isAdopted: Boolean,
     val idOwner: Int,
-    val idBreed: Int,
     val location: String,
-    val weight: String
+    val weight: String,
+    val img: String
 )
 
-//FUNCION DE EXTENSION - DEVUELVE UN OBJETO DOG
 fun DogModel.toDomain() = Dog(
     idDog,
     name,
     age,
-    sex,
+    breed,
+    subBreed,
+    gender,
     description,
     observations,
-    adopted,
+    isAdopted,
     idOwner,
-    idBreed,
     location,
-    weight
+    weight,
+    img
 )
 
 fun DogEntity.toDomain() = Dog(
     idDog,
     name,
     age,
-    sex,
+    breed,
+    subBreed,
+    gender,
     description,
     observations,
-    adopted,
+    isAdopted,
     idOwner,
-    idBreed,
     location,
-    weight
+    weight,
+    img
 )

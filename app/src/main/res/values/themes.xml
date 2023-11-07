@@ -2,9 +2,43 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.TP3_PARCIAL_BELGRANO_GRUPO4" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryVariant">@color/lavender</item>
+        <item name="android:statusBarColor">@color/gray</item>
     </style>
 
     <style name="Theme.TP3_PARCIAL_BELGRANO_GRUPO4" parent="Base.Theme.TP3_PARCIAL_BELGRANO_GRUPO4" />
+
+    <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/menu_color</item>
+        <item name="itemTextColor">@color/white</item>
+    </style>
+
+    <style name="NavDrawerTextStyle" parent="Base.TextAppearance.AppCompat">
+        <item name="android:fontFamily">sans-serif-thin</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="SearchStyle">
+        <item name="android:editTextColor">@color/lavender</item>
+        <item name="android:textColorHint">#424242</item>
+        <item name="android:fontFamily">sans-serif-condensed-light</item>
+    </style>
+
+    <style name="SmallerDrawable">
+        <item name="android:textSize">16sp</item>
+        <item name="android:scaleX">0.9</item>
+        <item name="android:scaleY">0.9</item>
+    </style>
+
+    <style name="Widget.Button.Toggle" parent="android:Widget">
+        <item name="android:background">@drawable/ic_toggle_bg</item>
+        <item name="android:disabledAlpha">?android:attr/disabledAlpha</item>
+    </style>
+
+    <style name="toggleButton" parent="android:Theme.Black">
+        <item name="android:buttonStyleToggle">@style/Widget.Button.Toggle</item>
+        <item name="android:textOn"></item>
+        <item name="android:textOff"></item>
+    </style>
 </resources>
