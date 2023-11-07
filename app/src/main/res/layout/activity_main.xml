@@ -39,7 +39,6 @@
         android:layout_height="wrap_content"
         android:itemTextAppearance="@style/NavDrawerTextStyle"
         app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
-        app:itemBackground="@color/white"
         app:itemHorizontalTranslationEnabled="false"
         app:itemIconSize="24dp"
         app:itemIconTint="@color/gray"
@@ -60,7 +59,7 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/menu_navigation"
-        android:background="@color/white"
+
         app:itemTextColor="@color/black"
         app:itemIconTint="@color/black">
     </com.google.android.material.navigation.NavigationView>
