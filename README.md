@@ -1,5 +1,6 @@
 # TP3_PARCIAL_BELGRANO_GRUPO4
-Grupo 4: Alarcon, Barboza, Guzman, Espiñeira y Fontana
+Grupo 4: Alarcon:: clarAlarconDev, Barboza
+: melisabarboza , Guzman: Rosa2108, Espiñeira: JoacoEspi y Fontana: CorinaFM
 
 1. En el caso que se pida extender la app para otros tipos de
 mascotas, por ejemplo gatos, ¿la app es flexible? ¿Qué cambios
