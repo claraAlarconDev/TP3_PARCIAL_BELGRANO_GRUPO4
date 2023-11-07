@@ -1,5 +1,6 @@
 package com.example.tp3_parcial_belgrano_grupo4.data.repositories
 
+import androidx.lifecycle.LiveData
 import com.example.tp3_parcial_belgrano_grupo4.data.database.dao.DogDao
 import com.example.tp3_parcial_belgrano_grupo4.data.database.entities.DogEntity
 import kotlinx.coroutines.Dispatchers
@@ -109,4 +110,16 @@ class DogRepository @Inject constructor(
         return dogDao.getAllDogsWhereIsAdoptedFalse()
     }
 
+    suspend fun updateDogAdoptionStatus(dogId: Int, isAdopted: Boolean) {
+        dogDao.updateAdoptionStatus(dogId, isAdopted)
+    }
+
+    suspend fun getDogById(dogId: Int): DogEntity {
+       return dogDao.getDogById(dogId)
+    }
+
+    suspend fun getAllDogsWhereIsAdoptedTrue(): List<DogEntity> {
+        insertDogs(emptyList())
+        return dogDao.getAllDogsWhereIsAdoptedTrue()
+    }
 }

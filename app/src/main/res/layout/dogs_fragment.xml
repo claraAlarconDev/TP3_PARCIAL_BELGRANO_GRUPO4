@@ -8,7 +8,7 @@
     tools:context=".ui.fragments.DogsFragment" >
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rec_dogs"
+        android:id="@+id/adopted_dogs"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"

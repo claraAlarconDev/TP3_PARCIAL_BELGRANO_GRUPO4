@@ -7,6 +7,7 @@ class Preferences(val context: Context) {
 
     private val SHARED_NAME = "myDtb"
     private val SHARED_USER_EMAIL = "userEmail"
+    private val SHARED_USER_PHONE_NUMBER = "userPhoneNumber"
     private val SHARED_USER_FAVOURITES_DOGS = "favorite_dogs"
 
     private val storage: SharedPreferences = context.getSharedPreferences(SHARED_NAME, 0)
@@ -17,6 +18,14 @@ class Preferences(val context: Context) {
 
     fun getUserEmail(): String {
         return storage.getString(SHARED_USER_EMAIL, "")!!
+    }
+
+    fun savePhoneNumber(phone: String) {
+        storage.edit().putString(SHARED_USER_PHONE_NUMBER, phone).apply()
+    }
+
+    fun getUserPhoneNumber(): String {
+        return storage.getString(SHARED_USER_PHONE_NUMBER, "")!!
     }
 
     fun addFavoriteDog(id: Int) {

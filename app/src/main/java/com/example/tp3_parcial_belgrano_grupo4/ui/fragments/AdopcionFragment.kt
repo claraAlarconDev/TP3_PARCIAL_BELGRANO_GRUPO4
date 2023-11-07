@@ -5,38 +5,57 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.tp3_parcial_belgrano_grupo4.R
-
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import com.example.tp3_parcial_belgrano_grupo4.adapters.DogsAdapter
+import com.example.tp3_parcial_belgrano_grupo4.data.repositories.DogRepository
+import com.example.tp3_parcial_belgrano_grupo4.ui.viewmodels.AdoptedViewModel
+import javax.inject.Inject
 
 class AdopcionFragment : Fragment() {
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    @Inject
+    lateinit var dogRepository: DogRepository
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var dogsAdapter: DogsAdapter
+    private val adoptedViewModel: AdoptedViewModel by activityViewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        adoptedViewModel.onCreate()
+        dogsAdapter = DogsAdapter(requireContext())
+
         return inflater.inflate(R.layout.adopcion_fragment, container, false)
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            AdopcionFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val isLoading = view.findViewById<View>(R.id.loading)
+        recyclerView = view.findViewById(R.id.adopted_dogs)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = dogsAdapter
+
+        adoptedViewModel.dogsList.observe(viewLifecycleOwner) {
+            dogsAdapter.setDogsList(it)
+        }
+
+        adoptedViewModel.isLoading.observe(viewLifecycleOwner, Observer {
+            isLoading.visibility = if (it) View.VISIBLE else View.GONE
+        })
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        adoptedViewModel.clear()
     }
 }
+
+
+
