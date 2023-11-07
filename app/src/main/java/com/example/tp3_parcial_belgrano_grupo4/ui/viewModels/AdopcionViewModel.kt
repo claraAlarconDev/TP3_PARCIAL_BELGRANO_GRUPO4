@@ -8,10 +8,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.tp3_parcial_belgrano_grupo4.R
 import com.example.tp3_parcial_belgrano_grupo4.data.database.dao.DogDao
+import com.example.tp3_parcial_belgrano_grupo4.data.database.entities.DogEntity
 import com.example.tp3_parcial_belgrano_grupo4.data.models.DogApiResponse
 import com.example.tp3_parcial_belgrano_grupo4.data.network.services.DogService
 import com.example.tp3_parcial_belgrano_grupo4.domain.InsertDogUseCase
-import com.example.tp3_parcial_belgrano_grupo4.domain.model.Dog
 import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -80,7 +80,7 @@ class AdopcionViewModel @Inject constructor(
     fun insertarNuevoPerro(
         nombre: String,
         edad: Int,
-        sexo: String,
+        gender: String,
         descripcion: String,
         observaciones: String,
         idOwner: Int,
@@ -88,30 +88,29 @@ class AdopcionViewModel @Inject constructor(
         subraza: String,
         ubicacion: String,
         peso: String,
-        fotos: List<String> // Nuevas fotos como lista de Strings
+        fotos: String // Nuevas fotos como lista de Strings
     ) {
         viewModelScope.launch {
             // Convertir la lista de URLs a una cadena JSON
             val json = Gson().toJson(fotos)
-
             // Crear un nuevo perro con las URLs en formato JSON
-            val dogWithPhotos = Dog(
+            val dog5 = DogEntity(
                 name = nombre,
                 age = edad,
-                sex = sexo,
+                gender = gender,
                 description = descripcion,
                 observations = observaciones,
-                adopted = false,
+                isAdopted = false,
                 idOwner = idOwner,
                 breed = raza,
                 subBreed = subraza,
                 location = ubicacion,
                 weight = peso,
-                photos = json
+                photos = fotos
             )
 
             // Insertar el perro en la base de datos
-            insertDogUseCase(dogWithPhotos)
+            insertDogUseCase(dog5)
 
             // Verificar si el perro se insertó correctamente
             val allDogs = dogDao.getAllDogs()

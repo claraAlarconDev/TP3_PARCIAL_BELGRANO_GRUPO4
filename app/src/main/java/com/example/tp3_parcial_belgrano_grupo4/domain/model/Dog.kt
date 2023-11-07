@@ -1,19 +1,17 @@
 package com.example.tp3_parcial_belgrano_grupo4.domain.model
 
 import com.example.tp3_parcial_belgrano_grupo4.data.database.entities.DogEntity
+import com.example.tp3_parcial_belgrano_grupo4.data.models.DogModel
 
 
-//Ejemplo por si deseas tomar en cuenta
-
-//MODELO DE DATO FINAL CON EL QUE TRABAJARA EL DOMINIO Y UI
 data class Dog(
     val idDog: Int = 0,
     val name: String,
     val age: Int,
-    val sex: String,
+    val gender: String,
     val description: String,
     val observations: String,
-    val adopted: Boolean,
+    val isAdopted: Boolean,
     val idOwner: Int,
     val breed: String,
     val subBreed: String?,
@@ -28,10 +26,10 @@ fun DogEntity.toDomain(): Dog {
         idDog,
         name,
         age,
-        sex,
+        gender,
         description,
         observations,
-        adopted,
+        isAdopted,
         idOwner,
         breed,
         subBreed,
@@ -40,3 +38,19 @@ fun DogEntity.toDomain(): Dog {
         photos
     )
 }
+fun DogModel.toDomain() = Dog(
+    idDog,
+    name,
+    age,
+    gender,
+    description,
+    observations,
+    isAdopted,
+    idOwner,
+    breed,
+    subBreed,
+    location,
+    weight,
+    photos
+)
+

@@ -24,7 +24,6 @@ object RoomModule {
         Room.databaseBuilder(context, AppDatabase::class.java, APP_DATABASE_NAME)
             .fallbackToDestructiveMigration()
             .build()
-
     @Singleton
     @Provides
     fun provideDogDao(db: AppDatabase) = db.getDogDao()
@@ -52,4 +51,5 @@ object RoomModule {
     @Singleton
     @Provides
     fun provideSavedDao(db: AppDatabase) = db.getSavedDao()
+
 }

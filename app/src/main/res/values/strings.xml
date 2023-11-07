@@ -14,4 +14,14 @@
     <string name="boton_publicar">Publicar</string>
     <string name="base_url">https://dog.ceo/api/</string>
     <string name="encabezado_publicacion">Publicacion de Perro</string>
+    <string name="home">Home</string>
+    <string name="favoritos">Favoritos</string>
+    <string name="adopcion">Adopción </string>
+    <string name="publicacion">Publicación</string>
+    <string name="subraza">SubRaza</string>
+    <string name="raza">Raza</string>
+    <string name="navigation_drawer_open">Abrir</string>
+    <string name="navigation_drawer_close">Cerrar</string>
+    <string name="perfil">Perfil</string>
+    <string name="configuracion">Configuración </string>
 </resources>

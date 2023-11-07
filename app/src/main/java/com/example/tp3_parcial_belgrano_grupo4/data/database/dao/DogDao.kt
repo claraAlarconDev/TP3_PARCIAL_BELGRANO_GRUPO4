@@ -19,4 +19,8 @@ interface DogDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(dog: DogEntity)
+
+    @Query("SELECT * FROM Dog_table WHERE isAdopted == 0")
+    suspend fun getAllDogsWhereIsAdoptedFalse(): List<DogEntity>
+
 }
