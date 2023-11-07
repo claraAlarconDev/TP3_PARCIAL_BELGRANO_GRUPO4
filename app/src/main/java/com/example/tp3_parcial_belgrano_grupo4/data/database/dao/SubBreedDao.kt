@@ -9,11 +9,11 @@ import com.example.tp3_parcial_belgrano_grupo4.data.database.entities.SubBreedEn
 @Dao
 interface SubBreedDao {
     @Query("SELECT * FROM SubBreed_table")
-    suspend fun getAllSubBreeds(): List<SubBreedEntity>
+    fun getAllSubBreeds(): List<SubBreedEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(subBreeds: List<SubBreedEntity>)
+    fun insertAll(subBreeds: List<SubBreedEntity>)
 
     @Query("DELETE FROM SubBreed_table")
-    suspend fun deleteAllSubBreed()
+    fun deleteAllSubBreed()
 }

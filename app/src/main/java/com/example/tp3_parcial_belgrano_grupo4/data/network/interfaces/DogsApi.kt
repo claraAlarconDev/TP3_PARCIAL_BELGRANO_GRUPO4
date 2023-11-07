@@ -6,6 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface DogsApi {
+
     @GET("breeds/list/all")
     fun listAllBreeds(): Call<DogApiResponse<Map<String,List<String>>>>
 
