@@ -15,7 +15,7 @@ class ImageSliderFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_image_slider, container, false)
+        val view = inflater.inflate(R.layout.image_slider_fragment, container, false)
 
         val imageSlider = view.findViewById<ImageSlider>(R.id.imageSlider)
 

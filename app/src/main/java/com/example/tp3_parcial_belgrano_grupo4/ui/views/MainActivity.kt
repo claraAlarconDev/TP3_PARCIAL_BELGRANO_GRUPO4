@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity() {
 
         bottomNavView = findViewById(R.id.bottom_bar)
         NavigationUI.setupWithNavController(bottomNavView, navHostFragment.navController)
+
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {

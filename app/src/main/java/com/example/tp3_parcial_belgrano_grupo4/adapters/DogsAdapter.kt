@@ -18,6 +18,13 @@ import com.squareup.picasso.Picasso
 class DogsAdapter(private val context: Context, private val dogsList: List<DogModel>) :
     RecyclerView.Adapter<DogsAdapter.DogsViewHolder>() {
 
+   /** interface DogItemClickListener {
+        fun onDogItemClicked(dogId: Int)
+    }
+
+    var itemClickListener: DogItemClickListener? = null
+**/
+
     @SuppressLint("NotifyDataSetChanged")
     fun setDogsList(dogsList: List<DogModel>) {
         (this.dogsList as ArrayList).clear()

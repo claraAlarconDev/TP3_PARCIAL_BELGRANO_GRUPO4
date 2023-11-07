@@ -1,5 +1,6 @@
 package com.example.tp3_parcial_belgrano_grupo4.data.repositories
 
+import androidx.lifecycle.LiveData
 import com.example.tp3_parcial_belgrano_grupo4.data.database.dao.DogDao
 import com.example.tp3_parcial_belgrano_grupo4.data.database.entities.DogEntity
 import javax.inject.Inject
@@ -99,5 +100,18 @@ class DogRepository @Inject constructor(
     suspend fun getAllDogsWhereIsAdoptedFalse(): List<DogEntity> {
         insertDogs(emptyList())
         return dogDao.getAllDogsWhereIsAdoptedFalse()
+    }
+
+    suspend fun updateDogAdoptionStatus(dogId: Int, isAdopted: Boolean) {
+        dogDao.updateAdoptionStatus(dogId, isAdopted)
+    }
+
+    suspend fun getDogById(dogId: Int): LiveData<DogEntity> {
+       return dogDao.getDogById(dogId)
+    }
+
+    suspend fun getAllDogsWhereIsAdoptedTrue(): List<DogEntity> {
+        insertDogs(emptyList())
+        return dogDao.getAllDogsWhereIsAdoptedTrue()
     }
 }
