@@ -2,6 +2,7 @@ package com.example.tp3_parcial_belgrano_grupo4.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,17 +14,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tp3_parcial_belgrano_grupo4.R
 import com.example.tp3_parcial_belgrano_grupo4.core.Preferences
 import com.example.tp3_parcial_belgrano_grupo4.data.models.DogModel
+import com.example.tp3_parcial_belgrano_grupo4.ui.views.DogDetailActivity
 import com.squareup.picasso.Picasso
+import java.util.Locale
+import java.util.stream.Collectors
 
-class DogsAdapter(private val context: Context, private val dogsList: List<DogModel>) :
+
+class DogsAdapter( private val context: Context) :
     RecyclerView.Adapter<DogsAdapter.DogsViewHolder>() {
+    private var dogsList: ArrayList<DogModel> = ArrayList()
+    private var originalDogList: ArrayList<DogModel> = ArrayList()
 
-    @SuppressLint("NotifyDataSetChanged")
-    fun setDogsList(dogsList: List<DogModel>) {
-        (this.dogsList as ArrayList).clear()
-        this.dogsList.addAll(dogsList)
-        notifyDataSetChanged()
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DogsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_dog, parent, false)
@@ -82,6 +83,39 @@ class DogsAdapter(private val context: Context, private val dogsList: List<DogMo
                 }
             }
 
+            dogImage.setOnClickListener {
+                val intent = Intent(context, DogDetailActivity::class.java)
+                intent.putExtra("idDog", dog.idDog.toString())
+                context.startActivity(intent)
+            }
         }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun filter(strSearch: String) {
+        if (strSearch.isEmpty()) {
+            dogsList.clear()
+            dogsList.addAll(originalDogList)
+        } else {
+            dogsList.clear()
+            val collect: List<DogModel> = originalDogList.stream()
+                .filter {
+                    it.breed.lowercase(Locale.ROOT).contains(strSearch) ||
+                    it.name.lowercase(Locale.ROOT).contains(strSearch) ||
+                    it.subBreed.lowercase(Locale.ROOT).contains(strSearch)
+                }
+                .collect(Collectors.toList())
+            dogsList.addAll(collect)
+        }
+        notifyDataSetChanged()
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun setDogsList(dogsList: List<DogModel>) {
+        this.dogsList.clear()
+        this.dogsList.addAll(dogsList)
+        this.originalDogList.clear()
+        this.originalDogList.addAll(dogsList)
+        notifyDataSetChanged()
     }
 }
