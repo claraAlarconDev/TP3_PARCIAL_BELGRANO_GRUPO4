@@ -71,13 +71,13 @@
                         android:id="@+id/textViewDetailGenero"
                         android:layout_width="82dp"
                         android:layout_height="wrap_content"
-                        android:text="Sex: M"></TextView>
+                        android:text="Sex:"></TextView>
 
                     <TextView
                         android:id="@+id/textViewDetailPeso"
                         android:layout_width="139dp"
                         android:layout_height="wrap_content"
-                        android:text="Weight: 10kg"></TextView>
+                        android:text="Weight:"></TextView>
                 </LinearLayout>
 
             </LinearLayout>

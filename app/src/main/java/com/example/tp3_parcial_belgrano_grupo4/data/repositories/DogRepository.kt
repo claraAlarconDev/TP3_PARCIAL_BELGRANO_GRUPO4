@@ -106,7 +106,7 @@ class DogRepository @Inject constructor(
         dogDao.updateAdoptionStatus(dogId, isAdopted)
     }
 
-    suspend fun getDogById(dogId: Int): LiveData<DogEntity> {
+    suspend fun getDogById(dogId: Int): DogEntity {
        return dogDao.getDogById(dogId)
     }
 

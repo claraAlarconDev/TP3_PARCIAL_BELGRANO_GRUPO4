@@ -10,11 +10,13 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.example.tp3_parcial_belgrano_grupo4.R
 import com.example.tp3_parcial_belgrano_grupo4.data.repositories.DogRepository
 import com.example.tp3_parcial_belgrano_grupo4.ui.fragments.ImageSliderFragment
 import com.example.tp3_parcial_belgrano_grupo4.ui.viewmodels.DetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
@@ -47,7 +49,6 @@ class DogDetailActivity : AppCompatActivity() {
 
 
 
-
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragmentContainerView, ImageSliderFragment())
         transaction.commit()
@@ -56,7 +57,22 @@ class DogDetailActivity : AppCompatActivity() {
 
         val dogId = intent.getIntExtra("dogId", 0)
 
+        lifecycleScope.launch {
+            val dog = detailViewModel.fetchDogById(dogId)
 
+            dog.observe(this@DogDetailActivity) { dogEntity ->
+                if (dogEntity != null) {
+                    // Update your UI with the dog's details
+                    textViewDetailPerroNombre.text = dogEntity.name
+                    textViewDetailEdad.text = dogEntity.age.toString()
+                    textViewDetailDesc.text = dogEntity.description
+                    textViewDetailGenero.text = dogEntity.gender
+                    textViewDetailUbic.text = dogEntity.location
+                } else {
+                    // Handle the case where there's an error or the dog is not found
+                }
+            }
+        }
 
         adoptButton = findViewById(R.id.btnAdopt)
         btnDetailCall = findViewById(R.id.BtnCall)
@@ -64,10 +80,8 @@ class DogDetailActivity : AppCompatActivity() {
         var countAdopt = 0
 
         adoptButton.setOnClickListener{
-
             Toast.makeText(this, "Adoptaste a Firulais", Toast.LENGTH_LONG).show()
         }
-
 
         favButton.setOnClickListener{
 
