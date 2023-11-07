@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import com.example.tp3_parcial_belgrano_grupo4.databinding.FragmentSettingBinding
 import com.example.tp3_parcial_belgrano_grupo4.ui.viewmodels.SettingViewModel
 
@@ -26,11 +25,6 @@ class SettingFragment : Fragment() {
 
         _binding = FragmentSettingBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-        val textView: TextView = binding.textSetting
-        settingViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
 
         return root
     }

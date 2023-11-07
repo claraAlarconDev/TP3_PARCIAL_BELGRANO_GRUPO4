@@ -3,12 +3,8 @@ package com.example.tp3_parcial_belgrano_grupo4.ui.views
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import com.example.tp3_parcial_belgrano_grupo4.R
 import com.example.tp3_parcial_belgrano_grupo4.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -33,7 +29,7 @@ class LoginActivity : AppCompatActivity() {
             val userPhone = userPhoneInput.text.toString()
             val userPass = userPassInput.text.toString()
 
-            if(userName.isNotEmpty() && userPhone.isNotEmpty() && userPass.isNotEmpty() ) {
+            if(userName.isNotEmpty() && userPhone.isNotEmpty() && userPass.isNotEmpty() && userPhone.length == 10 ) {
 
                 val intent = Intent(applicationContext, MainActivity::class.java)
 
@@ -48,7 +44,9 @@ class LoginActivity : AppCompatActivity() {
             } else if(userPhone.isEmpty()){
                 showAlertDialog("Cuidado, no has ingresado un telefono")
             }else if(userPass.isEmpty()){
-                showAlertDialog("Cuidado, el nombre de usuario esta vacio")
+                showAlertDialog("Cuidado, no has ingresado la contraseña")
+            }else if(userPhone.length != 10){
+                showAlertDialog("Cuidado, el telefono ingresado es invalido")
             }
         }
 
@@ -60,9 +58,6 @@ class LoginActivity : AppCompatActivity() {
             .setMessage(message)
             .setPositiveButton("Entendido"){ dialog, which ->
                 Toast.makeText(this, "Eso es! sigue intentandolo!", Toast.LENGTH_SHORT).show()
-            }
-            .setNegativeButton("No"){ dialog, which ->
-                dialog.dismiss()
             }
         val alertDialog: AlertDialog = builder.create()
         alertDialog.show()

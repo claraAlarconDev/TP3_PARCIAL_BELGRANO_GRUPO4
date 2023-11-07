@@ -23,7 +23,7 @@
             android:id="@+id/profile_greetings_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/profileImage"
+            android:layout_below="@+id/profile_image_header"
             android:text="@string/profile_header_greet"
             android:textColor="@color/grey"
             android:textSize="16dp"
@@ -35,7 +35,6 @@
             android:id="@+id/profile_name_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/user_name"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:layout_marginLeft="5dp"/>

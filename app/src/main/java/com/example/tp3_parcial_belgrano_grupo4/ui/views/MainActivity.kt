@@ -17,17 +17,20 @@ import com.example.tp3_parcial_belgrano_grupo4.R
 import com.example.tp3_parcial_belgrano_grupo4.ui.viewmodels.ProfileViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import com.squareup.picasso.Picasso
+import android.view.MenuItem
+import androidx.appcompat.app.ActionBarDrawerToggle
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navHostFragment: NavHostFragment
-    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var drawer: DrawerLayout
     private lateinit var navigationView: NavigationView
     private lateinit var profileViewModel: ProfileViewModel
-
-
+    private lateinit var toggle: ActionBarDrawerToggle
+    private lateinit var bottomNavView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,13 +42,39 @@ class MainActivity : AppCompatActivity() {
         val userName = intent.getStringExtra("user_name")
         val userPhone = intent.getStringExtra("user_phone")
 
-        val fragmentManager = supportFragmentManager
 
-        drawerLayout = findViewById(R.id.drawer_layout)
-        navigationView = findViewById(R.id.navigation_view)
-        navHostFragment = fragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
 
-        setupDrawerLayout()
+        val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
+
+
+        drawer = findViewById(R.id.viewContainer)
+        navigationView = findViewById(R.id.nav_view)
+        navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+
+        toggle = ActionBarDrawerToggle(
+            this,
+            drawer,
+            toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
+        )
+
+
+        drawer.addDrawerListener(toggle)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeButtonEnabled(true)
+
+
+
+
+        NavigationUI.setupWithNavController(navigationView, navHostFragment.navController)
+
+        bottomNavView = findViewById(R.id.bottom_bar)
+        NavigationUI.setupWithNavController(bottomNavView, navHostFragment.navController)
+
 
         val navHeaderUserName = navigationView.getHeaderView(0).findViewById<TextView>(R.id.profile_name_header)
         val navHeaderUserImage = navigationView.getHeaderView(0).findViewById<ImageView>(R.id.profile_image_header)
@@ -64,27 +93,17 @@ class MainActivity : AppCompatActivity() {
         })
 
     }
-    private fun setupDrawerLayout(){
-        val navController = navHostFragment.navController
-        navigationView.setupWithNavController(navController)
 
-        NavigationUI.setupActionBarWithNavController(this, navController,drawerLayout)
-
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.nav_home) {
-                supportActionBar?.setHomeAsUpIndicator(R.drawable.menu_24)
-            } else {
-                supportActionBar?.setDisplayHomeAsUpEnabled(true)
-            }
-        }
+    override fun onPostCreate(savedInstanceState: Bundle?) {
+        super.onPostCreate(savedInstanceState)
+        toggle.syncState()
     }
-    override fun onSupportNavigateUp(): Boolean {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
-            drawerLayout.openDrawer(GravityCompat.START)
-        }
 
-        return false
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(toggle.onOptionsItemSelected(item)) {
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
+
 }

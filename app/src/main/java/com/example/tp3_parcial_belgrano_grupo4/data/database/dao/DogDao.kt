@@ -15,5 +15,9 @@ interface DogDao {
     fun insertAll(dogs: List<DogEntity>)
 
     @Query("DELETE FROM Dog_table")
-    fun deleteAllDogs()
+    suspend fun deleteAllDogs()
+
+    @Query("SELECT * FROM Dog_table WHERE isAdopted == 0")
+    suspend fun getAllDogsWhereIsAdoptedFalse(): List<DogEntity>
+
 }

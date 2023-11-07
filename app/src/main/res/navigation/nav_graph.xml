@@ -2,27 +2,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/nav_home">
+    app:startDestination="@id/home">
 
     <fragment
-        android:id="@+id/nav_home"
+        android:id="@+id/home"
         android:name="com.example.tp3_parcial_belgrano_grupo4.ui.fragments.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home">
-    </fragment>
+        tools:layout="@layout/home_fragment"
+    />
 
     <fragment
         android:id="@+id/nav_profile"
         android:name="com.example.tp3_parcial_belgrano_grupo4.ui.fragments.ProfileFragment"
-        android:label="@string/title_profile"
+        android:label="@string/perfil"
         tools:layout="@layout/fragment_profile"/>
 
 
     <fragment
         android:id="@+id/nav_setting"
         android:name="com.example.tp3_parcial_belgrano_grupo4.ui.fragments.SettingFragment"
-        android:label="@string/title_setting"
+        android:label="@string/configuracion"
         tools:layout="@layout/fragment_setting"/>
+
+    <fragment
+        android:id="@+id/favoritos"
+        android:name="com.example.tp3_parcial_belgrano_grupo4.ui.fragments.FavoritosFragment"
+        android:label="favoritos_fragment"
+        tools:layout="@layout/favoritos_fragment" />
+
+    <fragment
+        android:id="@+id/publicacion"
+        android:name="com.example.tp3_parcial_belgrano_grupo4.ui.fragments.PublicacionFragment"
+        android:label="publicacion_fragment"
+        tools:layout="@layout/publicacion_fragment" />
+
+    <fragment
+        android:id="@+id/adopcion"
+        android:name="com.example.tp3_parcial_belgrano_grupo4.ui.fragments.AdopcionFragment"
+        android:label="adopcion_fragment"
+        tools:layout="@layout/adopcion_fragment" />
 
 </navigation>
 

@@ -5,9 +5,6 @@ import com.example.tp3_parcial_belgrano_grupo4.data.network.interfaces.DogsApi
 import retrofit2.Call
 import javax.inject.Inject
 
-//Ejemplo por si deseas tomar en cuenta
-//Clase Interactua con la api de perros
-//Clase inyectable (Dagger Hilt)
 class DogService @Inject constructor(
     private val api: DogsApi
 ) {

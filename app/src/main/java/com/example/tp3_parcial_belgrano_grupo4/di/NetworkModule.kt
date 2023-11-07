@@ -24,7 +24,7 @@ object NetworkModule {
     @Provides
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(Config.base_url)
+            .baseUrl(Config.baseUrl)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()

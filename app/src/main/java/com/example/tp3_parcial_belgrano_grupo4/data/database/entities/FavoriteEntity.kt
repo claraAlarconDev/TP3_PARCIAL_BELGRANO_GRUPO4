@@ -1,4 +1,5 @@
 package com.example.tp3_parcial_belgrano_grupo4.data.database.entities
+
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
