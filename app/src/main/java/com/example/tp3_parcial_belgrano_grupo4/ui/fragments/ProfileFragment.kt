@@ -37,7 +37,9 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.uploadFotoBtn.setOnClickListener{
-
+            val imageUrl = binding.userImage.text.toString()
+            viewModel.setImageUrl(imageUrl)
+            binding.userImage.text.clear()
         }
 
         viewModel.userImageUrl.observe(viewLifecycleOwner, Observer{ imageUrl ->

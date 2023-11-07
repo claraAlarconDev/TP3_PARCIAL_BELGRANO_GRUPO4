@@ -11,7 +11,6 @@ import javax.inject.Inject
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
     private val getOwnerAttributeUseCase : GetOwnerAttributeUseCase,
-    private val updateOwnerImageUseCase: UpdateOwnerImageUseCase
 ): ViewModel() {
 
     //userimage
@@ -23,7 +22,6 @@ class ProfileViewModel @Inject constructor(
     val userName: LiveData<String> = _userName
 
     //userPhone
-
     private val _userPhone = MutableLiveData<String>()
     val userPhone : LiveData<String> = _userPhone
 
@@ -32,10 +30,6 @@ class ProfileViewModel @Inject constructor(
         setImageUrl(imageUrl)
     }
 
-    suspend fun updateImage(imageUrl: String) {
-        //updateOwnerImageUseCase.invoke(0, imageUrl)
-        //setImageUrl(imageUrl)
-    }
 
     fun setImageUrl(imageUrl: String) {
         _userImageUrl.value = imageUrl

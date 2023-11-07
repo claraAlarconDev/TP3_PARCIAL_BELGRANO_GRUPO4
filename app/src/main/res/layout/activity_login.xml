@@ -34,15 +34,15 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="416dp"
-        android:layout_height="170dp"
+        android:layout_width="417dp"
+        android:layout_height="203dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.612">
+        app:layout_constraintVertical_bias="0.613">
 
         <EditText
             android:id="@+id/user_name_login"
@@ -51,7 +51,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="16dp"
-            android:hint="@string/user_name_hint" />
+            android:hint="@string/user_name_hint"
+            android:inputType="textPersonName" />
 
 
         <EditText
@@ -61,7 +62,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="16dp"
-            android:hint="@string/user_phone_hint" />
+            android:hint="@string/user_phone_hint"
+            android:inputType="phone" />
 
         <EditText
             android:id="@+id/user_pass_login"
@@ -70,7 +72,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="16dp"
-            android:hint="@string/user_pass_hint" />
+            android:hint="@string/user_pass_hint"
+            android:inputType="textPassword" />
 
     </LinearLayout>
 
@@ -78,10 +81,7 @@
         android:id="@+id/login_btn"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:background="@color/dark_purple"
-        android:text="Login"
-        android:textSize="15dp"
-        android:textColor="@color/white"
+        style="@style/login_btn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
