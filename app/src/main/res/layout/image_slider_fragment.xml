@@ -1,0 +1,12 @@
+<com.denzcoskun.imageslider.ImageSlider
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/imageSlider"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:iss_auto_cycle="false"
+    app:iss_corner_radius="20"
+    app:iss_period="1000"
+    app:iss_title_background="@drawable/gradient">
+
+</com.denzcoskun.imageslider.ImageSlider>

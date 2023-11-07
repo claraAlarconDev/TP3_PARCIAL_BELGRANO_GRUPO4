@@ -10,9 +10,12 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url = uri("https://jitpack.io") }
     }
 }
 
 rootProject.name = "TP3_PARCIAL_BELGRANO_GRUPO4"
 include(":app")
+
+
  
