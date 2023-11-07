@@ -9,11 +9,11 @@ import com.example.tp3_parcial_belgrano_grupo4.data.database.entities.FavoriteEn
 @Dao
 interface FavoriteDao {
     @Query("SELECT * FROM Favorite_table")
-    suspend fun getAllFavorites(): List<FavoriteEntity>
+    fun getAllFavorites(): List<FavoriteEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(favorites: List<FavoriteEntity>)
+    fun insertAll(favorites: List<FavoriteEntity>)
 
     @Query("DELETE FROM Favorite_table")
-    suspend fun deleteAllFavorite()
+    fun deleteAllFavorite()
 }

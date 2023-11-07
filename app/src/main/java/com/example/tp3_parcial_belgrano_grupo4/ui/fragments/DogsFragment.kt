@@ -29,7 +29,7 @@ class DogsFragment : Fragment() {
         Log.d("DogsFragment", "onCreateView")
 
         dogsViewModel.onCreate()
-        dogsAdapter = DogsAdapter(requireContext(), mutableListOf())
+        dogsAdapter = DogsAdapter(requireContext())
 
         return inflater.inflate(R.layout.dogs_fragment, container, false)
     }

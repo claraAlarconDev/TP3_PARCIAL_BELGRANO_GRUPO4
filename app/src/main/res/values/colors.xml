@@ -9,4 +9,10 @@
     <color name="dark_blue">#001D42</color>
     <color name="light_blue">#1B72C0</color>
     <color name="lavender">#8692f7</color>
+    <color name="grey">#7E8B97</color>
+    <color name="dark_purple">#3D405B</color>
+    <color name="light_purple">#AE79F5</color>
+    <color name="colorPrimary">#FFFFFF</color> <!-- Color de la barra de acción -->
+    <color name="colorPrimaryVariant">#FFC107</color> <!-- Color de acento -->
+    <color name="colorOnPrimary">#000000</color>
 </resources>

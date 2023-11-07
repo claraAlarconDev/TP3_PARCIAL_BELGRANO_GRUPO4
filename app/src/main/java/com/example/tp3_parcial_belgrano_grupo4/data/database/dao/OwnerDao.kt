@@ -9,10 +9,10 @@ import com.example.tp3_parcial_belgrano_grupo4.data.database.entities.OwnerEntit
 @Dao
 interface OwnerDao {
     @Query("SELECT * FROM Owner_table")
-    suspend fun getAllOwners(): List<OwnerEntity>
+    fun getAllOwners(): List<OwnerEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(owners: List<OwnerEntity>)
+    fun insertAll(owners: List<OwnerEntity>)
 
     @Query("DELETE FROM Owner_table")
     suspend fun deleteAllOwners()

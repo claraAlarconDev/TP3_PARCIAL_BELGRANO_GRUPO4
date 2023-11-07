@@ -10,12 +10,12 @@ import com.example.tp3_parcial_belgrano_grupo4.data.database.entities.BreedEntit
 interface BreedDao {
     // OBTENER TODAS LAS RAZAS
     @Query("SELECT * FROM Breed_table")
-    suspend fun getAllBreeds(): List<BreedEntity>
+    fun getAllBreeds(): List<BreedEntity>
 
     // INSERTAR TODAS LAS RAZAS - EN CASO DE EXISTIR UN CONFLICTO LO REEMPLAZA
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(breeds: List<BreedEntity>)
+    fun insertAll(breeds: List<BreedEntity>)
 
     @Query("DELETE FROM Breed_table")
-    suspend fun deleteAllBreed()
+    fun deleteAllBreed()
 }
