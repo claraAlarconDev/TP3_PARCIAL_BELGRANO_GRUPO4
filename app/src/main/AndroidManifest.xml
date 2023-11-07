@@ -27,6 +27,8 @@
             android:name=".ui.views.MainActivity"
             android:exported="false">
         </activity>
+        <activity
+                android:name=".ui.views.DogDetailActivity"
+                android:exported="false" />
     </application>
-
 </manifest>
