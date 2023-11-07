@@ -5,10 +5,10 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.DogsFragment" >
+    tools:context=".ui.fragments.FavoritosFragment" >
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rec_dogs"
+        android:id="@+id/fav_rec_dogs"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
