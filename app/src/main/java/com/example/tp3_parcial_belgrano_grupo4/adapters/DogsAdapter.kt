@@ -12,15 +12,14 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tp3_parcial_belgrano_grupo4.R
 import com.example.tp3_parcial_belgrano_grupo4.core.Preferences
-import com.example.tp3_parcial_belgrano_grupo4.data.database.entities.DogEntity
 import com.example.tp3_parcial_belgrano_grupo4.data.models.DogModel
 import com.squareup.picasso.Picasso
 
-class DogsAdapter(private val context: Context, private val dogsList: List<DogEntity>) :
+class DogsAdapter(private val context: Context, private val dogsList: List<DogModel>) :
     RecyclerView.Adapter<DogsAdapter.DogsViewHolder>() {
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setDogsList(dogsList: List<DogEntity>) {
+    fun setDogsList(dogsList: List<DogModel>) {
         (this.dogsList as ArrayList).clear()
         this.dogsList.addAll(dogsList)
         notifyDataSetChanged()
@@ -48,7 +47,7 @@ class DogsAdapter(private val context: Context, private val dogsList: List<DogEn
         private val dogImage: ImageView = itemView.findViewById(R.id.image_dog)
         private val dogFavoriteToggle: ToggleButton = itemView.findViewById(R.id.dog_fav)
 
-        fun bind(dog: DogEntity) {
+        fun bind(dog: DogModel) {
             val prefs = Preferences(context)
             val isFav = prefs.isFavoriteDog(dog.idDog)
             val textAgeGender = dog.age.toString() + " años, " + dog.gender

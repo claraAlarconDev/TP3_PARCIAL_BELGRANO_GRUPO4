@@ -12,6 +12,7 @@ import com.example.tp3_parcial_belgrano_grupo4.data.database.entities.DogEntity
 import com.example.tp3_parcial_belgrano_grupo4.data.models.DogApiResponse
 import com.example.tp3_parcial_belgrano_grupo4.data.network.services.DogService
 import com.example.tp3_parcial_belgrano_grupo4.domain.InsertDogUseCase
+import com.example.tp3_parcial_belgrano_grupo4.domain.model.Dog
 import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -94,7 +95,7 @@ class AdopcionViewModel @Inject constructor(
             // Convertir la lista de URLs a una cadena JSON
             val json = Gson().toJson(fotos)
             // Crear un nuevo perro con las URLs en formato JSON
-            val dog5 = DogEntity(
+            val dog5 = Dog(
                 name = nombre,
                 age = edad,
                 gender = gender,

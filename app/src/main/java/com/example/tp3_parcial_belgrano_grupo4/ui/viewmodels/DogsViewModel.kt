@@ -18,10 +18,10 @@ import javax.inject.Inject
 @HiltViewModel
 class DogsViewModel @Inject constructor(private val dogRepository: DogRepository) : ViewModel() {
 
-    private val _dogsList = MutableLiveData<List<DogEntity>>()
-    val dogsList: LiveData<List<DogEntity>> = _dogsList
+    private val _dogsList = MutableLiveData<List<DogModel>>()
+    val dogsList: LiveData<List<DogModel>> = _dogsList
 
-    fun setDogsList(dogsList: List<DogEntity>) {
+    fun setDogsList(dogsList: List<DogModel>) {
         _dogsList.value = dogsList
     }
 
@@ -38,7 +38,7 @@ class DogsViewModel @Inject constructor(private val dogRepository: DogRepository
             try {
                 val dogsList = dogRepository.getAllDogsWhereIsAdoptedFalse()
                 Log.d("DogsViewModel", "Dogs list: $dogsList")
-                setDogsList(dogsList.map { it.toDatabase() })
+                setDogsList(dogsList.map { it.toModel() })
             } catch (e: Exception) {
                 Log.e("DogsViewModel", "Error: ${e.message}")
             }

@@ -25,7 +25,7 @@ data class DogEntity(
 
 )
 
-fun DogEntity.toDatabase() = DogEntity(
+fun Dog.toDatabase() = DogEntity(
     name = name,
     age = age,
     gender = gender,

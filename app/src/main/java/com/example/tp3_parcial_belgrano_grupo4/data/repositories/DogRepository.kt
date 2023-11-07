@@ -105,7 +105,7 @@ class DogRepository @Inject constructor(
         insertDogs(emptyList())
         return dogDao.getAllDogsWhereIsAdoptedFalse()
     }
-    suspend fun insertDog(dog: DogEntity) {
+    suspend fun insertDog(dog: Dog) {
         val dogEntity = dog.toDatabase()
         dogDao.insert(dogEntity)
     }

@@ -47,7 +47,7 @@ class HomeFragment : Fragment() {
 
         lifecycleScope.launch {
             val dogs = dogRepository.getAllDogsWhereIsAdoptedFalse()
-            dogAdapter.setDogsList(dogs.map { it.toDatabase() })
+            dogAdapter.setDogsList(dogs.map { it.toModel() })
         }
     }
 }
