@@ -10,6 +10,13 @@ class DogRepository @Inject constructor(
     private val dogDao: DogDao
 ) {
     suspend fun insertDogs(dogs: List<DogEntity>) {
+        insertMockDogs()
+        withContext(Dispatchers.IO) {
+            dogDao.insertAll(dogs)
+        }
+    }
+
+    suspend fun insertMockDogs() {
         withContext(Dispatchers.IO) {
             val dog1 = DogEntity(
                 1,
@@ -20,7 +27,7 @@ class DogRepository @Inject constructor(
                 "hembra",
                 "Tierna",
                 "Juguetona",
-                true,
+                false,
                 5,
                 "Buenos Aires",
                 "5kg",
@@ -66,7 +73,7 @@ class DogRepository @Inject constructor(
                     "hembra",
                     "Tierna",
                     "Juguetona",
-                    true,
+                    false,
                     5,
                     "San Luis",
                     "5kg",
@@ -87,10 +94,146 @@ class DogRepository @Inject constructor(
                 "5kg",
                 "https://images.dog.ceo/breeds/wolfhound-irish/n02090721_4376.jpg"
             )
-            val dogsList = listOf(dog1, dog2, dog3, dog4, dog5)
+            val dog6 = DogEntity(
+                6,
+                "Tomate",
+                4,
+                "cattledog",
+                "australian",
+                "hembra",
+                "Tierna",
+                "Juguetona",
+                false,
+                5,
+                "Buenos Aires",
+                "5kg",
+                "https://images.dog.ceo/breeds/cattledog-australian/IMG_9350.jpg"
+            )
+            val dog7 =
+                DogEntity(
+                    7,
+                    "Atun",
+                    4,
+                    "bulldog",
+                    "boston",
+                    "macho",
+                    "vagoneta",
+                    "callejero",
+                    false,
+                    5,
+                    "Merlo",
+                    "7kg",
+                    "https://images.dog.ceo/breeds/hound-ibizan/n02091244_3240.jpg"
+                )
+            val dog8 =
+                DogEntity(
+                    8,
+                    "Tora",
+                    4,
+                    "dane",
+                    "great",
+                    "hembra",
+                    "",
+                    "",
+                    false,
+                    1,
+                    "Mendoza",
+                    "5kg",
+                    "https://images.dog.ceo/breeds/hound-afghan/n02088094_6035.jpg"
+                )
+            val dog9 =
+                DogEntity(
+                    9, "Paca", 4,
+                    "newfoundland",
+                    "",
+                    "hembra",
+                    "Tierna",
+                    "Juguetona",
+                    false,
+                    5,
+                    "San Luis",
+                    "5kg",
+                    "https://images.dog.ceo/breeds/hound-afghan/n02088094_5504.jpg"
+                )
+            val dog10 = DogEntity(
+                10,
+                "Fury",
+                4,
+                "cavapoo",
+                "",
+                "hembra",
+                "Juguetona",
+                "",
+                false,
+                3,
+                "Buenos Aires",
+                "5kg",
+                "https://images.dog.ceo/breeds/hound-basset/n02088238_10054.jpg"
+            )
+            val dog11 = DogEntity(
+                11,
+                "Maverick",
+                4,
+                "cavapoo",
+                "",
+                "hembra",
+                "Juguetona",
+                "",
+                true,
+                3,
+                "Buenos Aires",
+                "5kg",
+                "https://images.dog.ceo/breeds/hound-basset/n02088238_10054.jpg"
+            )
+            val dog12 = DogEntity(
+                12,
+                "Territory",
+                4,
+                "cavapoo",
+                "",
+                "hembra",
+                "Juguetona",
+                "",
+                true,
+                3,
+                "Buenos Aires",
+                "5kg",
+                "https://images.dog.ceo/breeds/hound-basset/n02088238_10054.jpg"
+            )
+            val dog13 = DogEntity(
+                13,
+                "Ka",
+                4,
+                "cavapoo",
+                "",
+                "hembra",
+                "Juguetona",
+                "",
+                true,
+                3,
+                "Buenos Aires",
+                "5kg",
+                "https://images.dog.ceo/breeds/hound-basset/n02088238_10054.jpg"
+            )
+            val dogsList = listOf(
+                dog1,
+                dog2,
+                dog3,
+                dog4,
+                dog5,
+                dog6,
+                dog7,
+                dog8,
+                dog9,
+                dog10,
+                dog11,
+                dog12,
+                dog13
+            )
             dogDao.insertAll(dogsList)
         }
     }
+
 
     suspend fun clearDogs() {
         dogDao.deleteAllDogs()
@@ -102,6 +245,7 @@ class DogRepository @Inject constructor(
         }
         return dogDao.getAllDogs()
     }
+
     suspend fun getAllDogsWhereIsAdoptedFalse(): List<DogEntity> {
         withContext(Dispatchers.IO) {
             insertDogs(emptyList())
