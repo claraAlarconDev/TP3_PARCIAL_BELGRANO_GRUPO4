@@ -1,6 +1,4 @@
 package com.example.tp3_parcial_belgrano_grupo4.ui.fragments
-/*
-
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -38,27 +36,27 @@ class PublicacionFragment : Fragment() {
         viewModel.viewModelScope.launch {
             viewModel.obtenerRazas()
         }
-        //binding.botonMacho.setOnClickListener{
+        binding.botonMacho.setOnClickListener{
             sexo = "Macho"
         }
 
-      //  binding.botonHembra.setOnClickListener {
+        binding.botonHembra.setOnClickListener {
             sexo = "Hembra"
         }
 
-       // binding.spinnerRaza.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        binding.spinnerRaza.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val razaSeleccionada = parent?.getItemAtPosition(position).toString()
-               // viewModel.viewModelScope.launch {
-                   // viewModel.obtenerSubrazas(razaSeleccionada)
+                viewModel.viewModelScope.launch {
+                    viewModel.obtenerSubrazas(razaSeleccionada)
                     val tieneSubrazas = viewModel.tieneSubrazas(razaSeleccionada)
 
                     if (!tieneSubrazas) {
-                      //  binding.spinnerSubraza.visibility = View.VISIBLE
-                       // binding.spinnerSubraza.prompt = ""
+                        binding.spinnerSubraza.visibility = View.VISIBLE
+                        binding.spinnerSubraza.prompt = ""
                     } else {
-                       // binding.spinnerSubraza.visibility = View.VISIBLE
-                       // binding.spinnerSubraza.prompt = "El perro no tiene sub-raza"
+                        binding.spinnerSubraza.visibility = View.VISIBLE
+                        binding.spinnerSubraza.prompt = "El perro no tiene sub-raza"
                     }
                 }
             }
@@ -75,7 +73,7 @@ class PublicacionFragment : Fragment() {
                 razasList
             )
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            //binding.spinnerRaza.adapter = adapter
+            binding.spinnerRaza.adapter = adapter
         }
 
         viewModel.subrazas.observe(viewLifecycleOwner) { subrazasList ->
@@ -126,4 +124,4 @@ class PublicacionFragment : Fragment() {
 
     }
 
-}*/
+}
