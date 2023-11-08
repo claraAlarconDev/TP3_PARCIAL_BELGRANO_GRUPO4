@@ -15,7 +15,7 @@ import com.example.tp3_parcial_belgrano_grupo4.adapters.FavDogsAdapter
 import com.example.tp3_parcial_belgrano_grupo4.core.Preferences
 import com.example.tp3_parcial_belgrano_grupo4.data.database.entities.toModel
 import com.example.tp3_parcial_belgrano_grupo4.data.repositories.DogRepository
-import com.example.tp3_parcial_belgrano_grupo4.ui.viewmodels.DogsViewModel
+import com.example.tp3_parcial_belgrano_grupo4.ui.viewModels.DogsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject

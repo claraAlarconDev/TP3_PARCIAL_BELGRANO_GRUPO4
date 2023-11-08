@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
 import com.example.tp3_parcial_belgrano_grupo4.R
 import com.example.tp3_parcial_belgrano_grupo4.adapters.DogsAdapter
-import com.example.tp3_parcial_belgrano_grupo4.ui.viewmodels.DogsViewModel
+import com.example.tp3_parcial_belgrano_grupo4.ui.viewModels.DogsViewModel
 
 @AndroidEntryPoint
 class DogsFragment : Fragment() {

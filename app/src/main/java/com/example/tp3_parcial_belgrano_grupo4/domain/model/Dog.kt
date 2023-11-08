@@ -19,7 +19,7 @@ data class Dog(
     val img: String
 )
 
-fun DogModel.toDomain() = Dog(
+fun DogEntity.toDatabase() = Dog(
     idDog,
     name,
     age,
