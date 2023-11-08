@@ -1,4 +1,4 @@
-package com.example.tp3_parcial_belgrano_grupo4.ui.viewModels
+package com.example.tp3_parcial_belgrano_grupo4.ui.viewmodels
 
 
 import androidx.lifecycle.LiveData
@@ -6,11 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.tp3_parcial_belgrano_grupo4.data.database.entities.DogEntity
-import com.example.tp3_parcial_belgrano_grupo4.data.models.DogModel
 import com.example.tp3_parcial_belgrano_grupo4.data.repositories.DogRepository
 import com.example.tp3_parcial_belgrano_grupo4.domain.GetDogByIdUseCase
 import com.example.tp3_parcial_belgrano_grupo4.domain.UpdateAdoptionStatusUseCase
-import com.example.tp3_parcial_belgrano_grupo4.ui.fragments.AdopcionFragment_MembersInjector
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

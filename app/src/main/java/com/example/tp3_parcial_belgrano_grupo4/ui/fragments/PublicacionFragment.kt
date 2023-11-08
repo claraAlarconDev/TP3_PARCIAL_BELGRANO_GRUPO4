@@ -12,7 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.viewModelScope
 import com.example.tp3_parcial_belgrano_grupo4.R
 import com.example.tp3_parcial_belgrano_grupo4.databinding.PublicacionFragmentBinding
-import com.example.tp3_parcial_belgrano_grupo4.ui.viewModels.AdopcionViewModel
+import com.example.tp3_parcial_belgrano_grupo4.ui.viewmodels.AdopcionViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.launch

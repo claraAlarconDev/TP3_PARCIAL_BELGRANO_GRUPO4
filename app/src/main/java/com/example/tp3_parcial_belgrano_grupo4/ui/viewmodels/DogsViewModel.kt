@@ -1,4 +1,4 @@
-package com.example.tp3_parcial_belgrano_grupo4.ui.viewModels
+package com.example.tp3_parcial_belgrano_grupo4.ui.viewmodels
 
 import android.util.Log
 import androidx.lifecycle.LiveData

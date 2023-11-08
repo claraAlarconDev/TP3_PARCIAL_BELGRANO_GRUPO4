@@ -1,4 +1,4 @@
-package com.example.tp3_parcial_belgrano_grupo4.ui.viewModels
+package com.example.tp3_parcial_belgrano_grupo4.ui.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

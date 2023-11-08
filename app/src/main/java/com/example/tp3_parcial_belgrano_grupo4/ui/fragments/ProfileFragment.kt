@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import com.example.tp3_parcial_belgrano_grupo4.databinding.FragmentProfileBinding
-import com.example.tp3_parcial_belgrano_grupo4.ui.viewModels.ProfileViewModel
+import com.example.tp3_parcial_belgrano_grupo4.ui.viewmodels.ProfileViewModel
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
 

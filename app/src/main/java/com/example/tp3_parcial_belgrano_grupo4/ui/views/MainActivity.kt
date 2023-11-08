@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.example.tp3_parcial_belgrano_grupo4.R
-import com.example.tp3_parcial_belgrano_grupo4.ui.viewModels.ProfileViewModel
+import com.example.tp3_parcial_belgrano_grupo4.ui.viewmodels.ProfileViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import com.squareup.picasso.Picasso
 import android.view.MenuItem
